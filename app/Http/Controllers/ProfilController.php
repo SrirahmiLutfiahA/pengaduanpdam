@@ -16,4 +16,13 @@ class ProfilController extends Controller
     {
         return view('register');
     }
+    //view 
+    public function dbpetugas()
+    {
+        return view('dbpetugas');
+    }
+    public function dbpelanggan()
+    {
+        return view('dbpelanggan');
+    }
 }

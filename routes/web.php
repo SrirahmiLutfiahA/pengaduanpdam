@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('petugas.master');
+    return view('pelanggan.dbpelanggan');
 });
 
 Route::get('/login', function () {
@@ -23,4 +23,12 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('register');
+});
+
+Route::get('/dbpetugas', function () {
+    return view('petugas.dbpetugas');
+});
+
+Route::get('/dbpelanggan', function () {
+    return view('pelanggan.dbpelanggan');
 });

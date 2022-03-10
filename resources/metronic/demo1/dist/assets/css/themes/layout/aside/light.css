@@ -1,5 +1,5 @@
 .aside {
-  background-color: #4280a6;
+  background-color: #0088ff;
 }
 .aside .aside-menu.ps > .ps__rail-x {
   background-color: transparent;
@@ -12,12 +12,12 @@
   opacity: 1;
 }
 .aside .aside-menu.ps > .ps__rail-x > .ps__thumb-x {
-  background-color: #e0e2f0;
+  background-color: #0088ff;
   opacity: 1;
 }
 .aside .aside-menu.ps > .ps__rail-x > .ps__thumb-x:hover, .aside .aside-menu.ps > .ps__rail-x > .ps__thumb-x:focus {
   opacity: 1;
-  background-color: #e0e2f0;
+  background-color: #000000;
 }
 .aside .aside-menu.ps > .ps__rail-y {
   background-color: transparent;
@@ -30,30 +30,30 @@
   opacity: 1;
 }
 .aside .aside-menu.ps > .ps__rail-y > .ps__thumb-y {
-  background: #e0e2f0;
+  background: #ffffff;
   opacity: 1;
 }
 .aside .aside-menu.ps > .ps__rail-y > .ps__thumb-y:hover, .aside .aside-menu.ps > .ps__rail-y > .ps__thumb-y:focus {
   opacity: 1;
-  background: #e0e2f0;
+  background: #ffffff;
 }
 
 .aside-menu {
-  background-color: #4280a6;
+  background-color: #0088ff;
 }
 .aside-menu .menu-nav > .menu-item > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
-  color: #3F4254;
+  color: #ffffff;
 }
 .aside-menu .menu-nav > .menu-item > .menu-heading .menu-icon,
 .aside-menu .menu-nav > .menu-item > .menu-link .menu-icon {
-  color: #494b74;
+  color: #3f90f2;
 }
 .aside-menu .menu-nav > .menu-item > .menu-heading .menu-icon.svg-icon svg g [fill],
 .aside-menu .menu-nav > .menu-item > .menu-link .menu-icon.svg-icon svg g [fill] {
   -webkit-transition: fill 0.3s ease;
   transition: fill 0.3s ease;
-  fill: #494b74;
+  fill: #ffffff;
 }
 .aside-menu .menu-nav > .menu-item > .menu-heading .menu-icon.svg-icon svg:hover g [fill],
 .aside-menu .menu-nav > .menu-item > .menu-link .menu-icon.svg-icon svg:hover g [fill] {
@@ -78,7 +78,7 @@
 }
 .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading,
 .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link {
-  background-color: #F3F6F9;
+  background-color: #0070e0;
 }
 .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link .menu-text {
@@ -117,15 +117,15 @@
 }
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-heading,
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-link {
-  background-color: #F3F6F9;
+  background-color: #0063ba;
 }
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-text {
-  color: #3699FF;
+  color: #0063ba;
 }
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-heading .menu-icon,
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-icon {
-  color: #3699FF;
+  color: #0063ba;
 }
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-heading .menu-icon.svg-icon svg g [fill],
 .aside-menu .menu-nav > .menu-item.menu-item-here > .menu-link .menu-icon.svg-icon svg g [fill] {
@@ -199,7 +199,7 @@
 }
 .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link .menu-text {
-  color: #ffffff;
+  color: #0063ba;
 }
 .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading .menu-icon,
 .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link .menu-icon {
@@ -229,7 +229,7 @@
   color: #ffffff;
 }
 .aside-menu .menu-nav > .menu-item > .menu-arrow {
-  color: #1e1e2d;
+  color: #0088ff;
 }
 .aside-menu .menu-nav > .menu-section .menu-text {
   color: #7E8299;
@@ -238,7 +238,7 @@
   color: #B5B5C3;
 }
 .aside-menu .menu-nav > .menu-separator {
-  border-bottom: 1px solid #EBEDF3;
+  border-bottom: 1px solid #0040ff;
 }
 .aside-menu .menu-nav > .menu-item .menu-submenu .menu-item > .menu-heading .menu-text,
 .aside-menu .menu-nav > .menu-item .menu-submenu .menu-item > .menu-link .menu-text {
@@ -453,7 +453,7 @@
 @media (min-width: 992px) {
   .aside-minimize:not(.aside-minimize-hover) .aside-menu .menu-nav .menu-item:not([data-menu-submenu-mode=accordion]).menu-item-hover > .menu-submenu,
 .aside-menu.aside-menu-dropdown .menu-nav .menu-item:not([data-menu-submenu-mode=accordion]).menu-item-hover > .menu-submenu {
-    background-color: #ffffff;
+    background-color: #3699FF;
     -webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
     box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
   }
