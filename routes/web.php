@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TarifairController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,8 @@ Route::get('/dbpetugas', function () {
 Route::get('/dbpelanggan', function () {
     return view('pelanggan.dbpelanggan');
 });
+
+//Tarif Air
+Route::resource('petugas.tarifair','TarifairController');
+Route::get('/index', [App\Http\Controllers\TarifairController::class, 'index'])->name('tarifair.index');
+Route::get('/create', [App\Http\Controllers\TarifairController::class, 'create'])->name('tarifair.create');

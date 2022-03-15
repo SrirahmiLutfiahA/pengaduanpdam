@@ -89,7 +89,7 @@
 								<div class="form-group">
 									<button id="kt_login_signup_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Daftar</button>
 									<a href="/login">
-                                        <button id="kt_login_signin" class="btn btn-pill btn-outline-white font-weight-bold opacity-70 px-15 py-3 m-2">Batal</button>
+                                        <button class="btn btn-pill btn-outline-white font-weight-bold opacity-70 px-15 py-3 m-2">Batal</button>
                                     </a>
                                     </div>
 							</form>
