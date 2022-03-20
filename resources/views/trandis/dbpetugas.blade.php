@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('pelanggan.master.header')
+@include('trandis.master.header')
 <!--begin::Body-->
 <body id="kt_body"
     class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
     <!--begin::Main-->
-    @include('pelanggan.master.logo')
+    @include('trandis.master.logo')
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="d-flex flex-row flex-column-fluid page">
-            @include('pelanggan.master.sidebar')
+            @include('trandis.master.sidebar')
             <!--begin::Wrapper-->
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-                @include('pelanggan.master.topbar')
+                @include('trandis.master.topbar')
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Subheader-->
@@ -85,7 +85,7 @@
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->
-                @include('pelanggan.master.footer')
+                @include('trandis.master.footer')
                 <!--end::Footer-->
             </div>
             <!--end::Wrapper-->
@@ -93,7 +93,7 @@
         <!--end::Page-->
     </div>
     <!--end::Main-->
-    @include('pelanggan.master.itemtopbar')
+    @include('trandis.master.itemtopbar')
 </body>
 <!--end::Body-->
 

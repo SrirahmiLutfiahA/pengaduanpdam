@@ -19,8 +19,8 @@
     <link href="assets1/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
-    <link href="assets1/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
-    <link href="assets1/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="assets1/css/themes/layout/header/base/dark.css" rel="stylesheet" type="text/css" />
+    <link href="assets1/css/themes/layout/header/menu/dark.css" rel="stylesheet" type="text/css" />
     <link href="assets1/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
     <link href="assets1/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->

@@ -87,10 +87,8 @@
 									<div class="form-text text-muted text-center"></div>
 								</div>
 								<div class="form-group">
-									<button id="kt_login_signup_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Daftar</button>
-									<a href="/login">
-                                        <button class="btn btn-pill btn-outline-white font-weight-bold opacity-70 px-15 py-3 m-2">Batal</button>
-                                    </a>
+									<button id="kt_login_signup_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Daftar</button><br>
+									<a href="/login" class="text-white font-weight-bold">Sudah Mempunyai Akun ? Login Disini</a>
                                     </div>
 							</form>
 						</div>

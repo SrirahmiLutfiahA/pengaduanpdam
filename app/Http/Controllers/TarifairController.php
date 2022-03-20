@@ -17,4 +17,11 @@ class TarifairController extends Controller
     {
         return view('petugas.tarifair.create');
     }
+
+    //tampil dihalaman utama
+    public function index2()
+    {
+        $tarifairs = tarifair::all();
+        return view('halamantarifair')->with('tarifairs',$tarifairs);
+    }
 }

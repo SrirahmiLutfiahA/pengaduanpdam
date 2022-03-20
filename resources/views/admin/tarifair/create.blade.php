@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('petugas.master.header')
+@include('admin.master.header')
 <!--begin::Body-->
 
 <body id="kt_body"
     class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
     <!--begin::Main-->
     <div class="d-flex flex-column flex-root">
+        
         <!--begin::Page-->
         <div class="d-flex flex-row flex-column-fluid page">
+            
 
-            @include('petugas.master.sidebar')
-
+            @include('admin.master.sidebar')
+         
             <!--begin::Wrapper-->
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-
-                @include('petugas.master.topbar')
+                
+                @include('admin.master.topbar')
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -58,13 +60,15 @@
 
                         <!--begin::Subheader-->
                         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                               
                             <div
                                 class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Tambah Data
+                                    Tarif Air Minum</h5>
                                 <!--begin::Info-->
                                 <div class="d-flex align-items-center flex-wrap mr-2">
                                     <!--begin::Page Title-->
-                                    <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Tambah Data
-                                        Tarif Air Minum</h5>
+                                   
                                     <!--end::Page Title-->
 
                                 </div>
@@ -90,13 +94,13 @@
                     </div>
                     <!--end::Content-->
                 </div>
-                @include('petugas.master.footer')
+                @include('admin.master.footer')
                 <!--end::Wrapper-->
             </div>
             <!--end::Page-->
         </div>
         <!--end::Main-->
-        @include('petugas.master.itemtopbar')
+        @include('admin.master.itemtopbar')
 </body>
 <!--end::Body-->
 

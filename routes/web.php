@@ -15,9 +15,8 @@ use App\Http\Controllers\TarifairController;
 */
 
 Route::get('/', function () {
-    return view('pelanggan.dbpelanggan');
+    return view('welcome');
 });
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -26,15 +25,20 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/dbpetugas', function () {
-    return view('petugas.dbpetugas');
+Route::get('/dbadmin', function () {
+    return view('admin.dbadmin');
 });
 
 Route::get('/dbpelanggan', function () {
     return view('pelanggan.dbpelanggan');
+});
+Route::get('/dbpetugas', function () {
+    return view('trandis.dbpetugas');
 });
 
 //Tarif Air
 Route::resource('petugas.tarifair','TarifairController');
 Route::get('/index', [App\Http\Controllers\TarifairController::class, 'index'])->name('tarifair.index');
 Route::get('/create', [App\Http\Controllers\TarifairController::class, 'create'])->name('tarifair.create');
+//tampil dihal utama
+Route::get('/index2', [App\Http\Controllers\TarifairController::class, 'index2'])->name('halamantarifair');
