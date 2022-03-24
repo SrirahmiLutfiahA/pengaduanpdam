@@ -48,9 +48,22 @@
 								<h3>PENGADUAN PELANGGAN PDAM TIRTA LESTARI TUBAN</h3><br>
 								<p class="opacity-60 font-weight-bold">Masukkan akun Anda :</p>
 							</div>
-							<form class="form" id="kt_login_signin_form">
+
+							@if ( Session::has('pesan'))
+
+								<div class="alert alert-danger">
+									<b>Pemberitahuan</b><br>
+									{{ Session('pesan') }}
+								</div>
+
+							@endif
+
+							<form class="form" action="authenticate" method="POST">
+
+								@csrf
+
 								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="text" placeholder="Email" name="username" autocomplete="off" />
+									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="email" placeholder="Email" name="email" autocomplete="off" />
 								</div>
 								<div class="form-group">
 									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="password" placeholder="Password" name="password" />
@@ -64,7 +77,7 @@
 									{{-- <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Lupa Password ?</a> --}}
 								</div>
 								<div class="form-group text-center mt-10">
-									<button id="kt_login_signin_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Login</button>
+									<button type="submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Login</button>
 								</div>
 							</form>
 							<div class="mt-10">

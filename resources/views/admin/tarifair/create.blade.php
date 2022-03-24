@@ -21,13 +21,26 @@
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                   
+                    <form action="tarif/create" method="POST">
+                    
+                        @csrf
+
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Kelompok Pelanggan</strong>
-                                    <input type="text" name="kelompokpelanggan" class="form-control"
-                                        placeholder="Kelompok Pelanggan">
+                                    <select name="kelompokpelanggan" class="form-control" id="">
+                                        <option value="Sosial">Sosial</option>
+                                        <option value="Rumah Tangga A">Rumah Tangga A</option>
+                                        <option value="Rumah Tangga B">Rumah Tangga B</option>
+                                        <option value="Dinas Instansi">Dinas Instansi</option>
+                                        <option value="Niaga">Niaga</option>
+                                        <option value="Industri">Industri</option>
+                                    </select>
+                                    <!-- <input type="text" name="kelompokpelanggan" class="form-control"
+                                        placeholder="Kelompok Pelanggan"> -->
                                 </div>
                             </div>
                         </div>
@@ -35,7 +48,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Harga Pemakaian</strong>
-                                    <input type="text" name="hargapemakaian" class="form-control" placeholder="Harga Pemakaian">
+                                    <input type="number" name="hargapemakaian" class="form-control" placeholder="Harga Pemakaian">
                                 </div>
                             </div>
                         </div>
@@ -43,7 +56,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Biaya Pemeliharaan</strong>
-                                    <input type="text" name="biayapemeliharaan" class="form-control" placeholder="Biaya Pemeliharaan">
+                                    <input type="number" name="biayapemeliharaan" class="form-control" placeholder="Biaya Pemeliharaan">
                                 </div>
                             </div>
                         </div>
@@ -51,7 +64,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Biaya Administrasi</strong>
-                                    <input type="text" name="biayaadministrasi" class="form-control" placeholder="Biaya Administrasi">
+                                    <input type="number" name="biayaadministrasi" class="form-control" placeholder="Biaya Administrasi">
                                 </div>
                             </div>
                         </div>
@@ -92,6 +105,8 @@
                         </div>
                         <!--end::Subheader-->
                     </div>
+
+                    </form>
                     <!--end::Content-->
                 </div>
                 @include('admin.master.footer')

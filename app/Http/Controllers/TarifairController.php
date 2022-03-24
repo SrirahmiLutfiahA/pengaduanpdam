@@ -18,6 +18,82 @@ class TarifairController extends Controller
         return view('admin.tarifair.create');
     }
 
+
+    // proses tambah
+    function process( Request $request ) {
+
+        $getKelompok = $request->input('kelompokpelanggan');
+        $getPemakaian    = $request->input('hargapemakaian');
+        $getPemeliharaan = $request->input('biayapemeliharaan');
+        $getAdministrasi = $request->input('biayaadministrasi');
+
+        // insert to db 
+        $data = array(
+
+            'kelompok_pelanggan'=> $getKelompok,
+            'hargapemakaian'    => $getPemakaian,
+            'biayapemeliharaan' => $getPemeliharaan,
+            'biayaadministrasi' => $getAdministrasi
+        );
+        
+        tarifair::create($data);
+
+        return redirect('tarif');
+    }
+
+
+
+
+    function delete( $id ) {
+
+        $tarifair = tarifair::find( $id );
+
+        if ( $tarifair ) {
+
+            $tarifair->delete();
+            return redirect( 'tarif' )->with('pesan', 'Berhasil terhapus');
+
+        } else {
+
+            return abort(404);
+        }
+    }
+
+
+
+
+
+    //
+    function update( Request $request, $id ) {
+
+        $tarifair = tarifair::find( $id );
+
+        if ( $tarifair ) {
+
+            $getKelompok = $request->input('kelompokpelanggan');
+            $getPemakaian    = $request->input('hargapemakaian');
+            $getPemeliharaan = $request->input('biayapemeliharaan');
+            $getAdministrasi = $request->input('biayaadministrasi');
+
+            // insert to db 
+            $data = array(
+
+                'kelompok_pelanggan'=> $getKelompok,
+                'hargapemakaian'    => $getPemakaian,
+                'biayapemeliharaan' => $getPemeliharaan,
+                'biayaadministrasi' => $getAdministrasi
+            );
+
+
+            $tarifair->update($data);
+            return redirect('tarif');
+
+
+        } else return abort(404);
+    }
+
+
+
     //tampil dihalaman utama
     public function index2()
     {

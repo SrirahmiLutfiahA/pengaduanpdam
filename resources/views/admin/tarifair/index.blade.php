@@ -80,47 +80,116 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    @php 
+                                        $nomor = 1;
+
+                                    @endphp 
+
+
+                                    @foreach ( $tarifairs AS $row )
                                     <tr>
-                                        <td>35356-778</td>
-                                        <td>Dodge</td>
-                                        <td>Ram 2500</td>
-                                        <td>Goldenrod</td>
-                                        <td>$13569.00</td>
-                                        <td>2016-03-22</td>
-                                        <td class="text-right">5</td>
-                                        <td class="text-right">1</td>
+                                        <td>{{ $row->kelompok_pelanggan }}</td>
+                                        <td>{{ number_format($row->hargapemakaian, 2) }}</td>
+                                        <td>{{ $row->biayapemeliharaan }}</td>
+                                        <td>{{ $row->biayaadministrasi }}</td>
+                                        <td>
+                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit" class="btn btn-sm btn-light-warning">Sunting</a>
+                                            <a href="tarif/delete/{{ $row->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->kelompokpelanggan }}')" class="btn btn-sm btn-light-danger">Hapus</a>
+                                        
+                                        
+                                            <!-- Modal-->
+                                            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-1"
+                                                role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-sm"
+                                                    role="document">
+                                                    <div class="modal-content">
+
+
+                                                        <form action="tarif/edit/{{ $row->id }}" method="post">
+
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                <h3>Pengubahan Informasi</h3>
+                                                                <p>Sunting data {{ $row->kelompok_pelanggan }}</p>
+
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Kelompok Pelanggan</strong>
+                                                                            <select name="kelompokpelanggan"
+                                                                                class="form-control" id="">
+                                                                                <option value="Sosial" {{ $row->kelompok_pelanggan == "Sosial" ? 'selected="selected"' : '' }}>Sosial</option>
+                                                                                <option value="Rumah Tangga A" {{ $row->kelompok_pelanggan == "Rumah Tangga A" ? 'selected="selected"' : '' }}>Rumah
+                                                                                    Tangga A</option>
+                                                                                <option value="Rumah Tangga B" {{ $row->kelompok_pelanggan == "Rumah Tangga B" ? 'selected="selected"' : '' }}>Rumah
+                                                                                    Tangga B</option>
+                                                                                <option value="Dinas Instansi" {{ $row->kelompok_pelanggan == "Dinas Instansi" ? 'selected="selected"' : '' }}>Dinas
+                                                                                    Instansi</option>
+                                                                                <option value="Niaga" {{ $row->kelompok_pelanggan == "Niaga" ? 'selected="selected"' : '' }}>Niaga</option>
+                                                                                <option value="Industri" {{ $row->kelompok_pelanggan == "Industri" ? 'selected="selected"' : '' }}>Industri
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Harga Pemakaian</strong>
+                                                                            <input type="number" name="hargapemakaian" value="{{ $row->hargapemakaian }}"
+                                                                                class="form-control"
+                                                                                placeholder="Harga Pemakaian">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Biaya Pemeliharaan</strong>
+                                                                            <input type="number"
+                                                                                name="biayapemeliharaan" value="{{ $row->biayapemeliharaan }}"
+                                                                                class="form-control"
+                                                                                placeholder="Biaya Pemeliharaan">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Biaya Administrasi</strong>
+                                                                            <input type="number"
+                                                                                name="biayaadministrasi" value="{{ $row->biayaadministrasi }}"
+                                                                                class="form-control"
+                                                                                placeholder="Biaya Administrasi">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                        </div>
+
+
+
+
+                                                        <div class="modal-footer">
+                                                            <button type="button"
+                                                                class="btn btn-light-primary btn-sm font-weight-bold"
+                                                                data-dismiss="modal">Batal</button>
+                                                            <button type="submit"
+                                                                class="btn btn-warning btn-sm font-weight-bold">Simpan dan Perbarui</button>
+                                                        </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>48951-3040</td>
-                                        <td>Mitsubishi</td>
-                                        <td>Eclipse</td>
-                                        <td>Aquamarine</td>
-                                        <td>$22471.73</td>
-                                        <td>2016-04-17</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0487-9801</td>
-                                        <td>Pontiac</td>
-                                        <td>GTO</td>
-                                        <td>Green</td>
-                                        <td>$43149.39</td>
-                                        <td>2016-05-27</td>
-                                        <td class="text-right">4</td>
-                                        <td class="text-right">1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>54753-003</td>
-                                        <td>Audi</td>
-                                        <td>S4</td>
-                                        <td>Turquoise</td>
-                                        <td>$39286.74</td>
-                                        <td>2016-07-23</td>
-                                        <td class="text-right">5</td>
-                                        <td class="text-right">2</td>
-                                    </tr>
+
+                                    @php
+                                        $nomor++;
+                                    @endphp
+
+                                    @endforeach
                                 </tbody>
                             </table>
                             <!--end: Datatable-->
