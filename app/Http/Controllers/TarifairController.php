@@ -10,12 +10,12 @@ class TarifairController extends Controller
     public function index()
     {
         $tarifairs = tarifair::all();
-        return view('petugas.tarifair.index')->with('tarifairs',$tarifairs);
+        return view('admin.tarifair.index')->with('tarifairs',$tarifairs);
     }
 
     public function create()
     {
-        return view('petugas.tarifair.create');
+        return view('admin.tarifair.create');
     }
 
     //tampil dihalaman utama
