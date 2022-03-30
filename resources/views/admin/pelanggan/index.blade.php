@@ -19,17 +19,17 @@
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    {{-- <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tarif Air Minum</h5> --}}
+                    {{-- <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pelanggan</h5> --}}
 
                     <!--begin::Card-->
                     <div class="card card-custom">
                         <div class="card-header flex-wrap border-0 pt-6 pb-0">
                             <div class="card-title">
-                                
+
                             </div>
                             <div class="card-toolbar">
                                 <!--begin::Button-->
-                                <a href="{{route('tarifair.create')}}" class="btn btn-primary font-weight-bolder">
+                                <a href="/pelanggancreate" class="btn btn-primary font-weight-bolder">
                                     <span class="svg-icon svg-icon-md">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
                                             </g>
                                         </svg>
                                         <!--end::Svg Icon-->
-                                    </span>Tambah Data</a>
+                                    </span>Tambah Data Pelanggan</a>
                                 <!--end::Button-->
                             </div>
                         </div>
@@ -72,31 +72,40 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        <th title="Field #1">Kelompok Pelanggan</th>
-                                        <th title="Field #2">Harga Pemakaian</th>
-                                        <th title="Field #3">Biaya Pemeliharaan</th>
-                                        <th title="Field #4">Biaya Administrasi</th>
-                                        <th title="Field #5">Aksi</th>
+                                        <th title="Field #1">Profile ID</th>
+                                        <th title="Field #2">Nama Lengkap</th>
+                                        <th title="Field #3">Nomor Telp</th>
+                                        <th title="Field #4">Alamat</th>
+                                        <th title="Field #5">Nomor Sambungan</th>
+                                        <th title="Field #6">Bukti Pembayaran</th>
+                                        <th title="Field #7">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php 
-                                        $nomor = 1;
+                                    @php
+                                    $nomor = 1;
 
-                                    @endphp 
+                                    @endphp
 
 
-                                    @foreach ( $tarifairs AS $row )
+                                    @foreach ( $pelanggans AS $row )
                                     <tr>
-                                        <td>{{ $row->kelompok_pelanggan }}</td>
-                                        <td>{{ number_format($row->hargapemakaian, 3) }}</td>
-                                        <td>{{ number_format($row->biayapemeliharaan, 3) }}</td>
-                                        <td>{{ number_format($row->biayaadministrasi, 3) }}</td>
+                                        <td>{{ $row->profile_id }}</td>
+                                        <td>{{ $row->namalengkap }}</td>
+                                        <td>{{ $row->telp }}</td>
+                                        <td>{{ $row->alamat }}</td>
+                                        <td>{{ $row->nosambungan }}</td>
                                         <td>
-                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit" class="btn btn-sm btn-light-warning">Sunting</a>
-                                            <a href="tarif/delete/{{ $row->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->kelompokpelanggan }}')" class="btn btn-sm btn-light-danger">Hapus</a>
-                                        
-                                        
+                                            <img src="{{asset('img/'.$row->buktipembayaran)}}" width="96px">
+                                        </td>
+                                        <td>
+                                            <a href="javascript:;" data-toggle="modal" data-target="#edit"
+                                                class="btn btn-sm btn-light-warning">Sunting</a>
+                                            <a href="pelanggan/delete/{{ $row->id }}"
+                                                onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->profile_id }}')"
+                                                class="btn btn-sm btn-light-danger">Hapus</a>
+
+
                                             <!-- Modal-->
                                             <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
                                                 role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
@@ -105,78 +114,87 @@
                                                     <div class="modal-content">
 
 
-                                                        <form action="tarif/edit/{{ $row->id }}" method="post">
+                                                        <form action="pelanggan/edit/{{ $row->id }}" method="post">
 
                                                             @csrf
                                                             <div class="modal-body">
                                                                 <h3>Pengubahan Informasi</h3>
-                                                                <p>Sunting data {{ $row->kelompok_pelanggan }}</p>
-
+                                                                <p>Sunting data {{ $row->profile_id }}</p>
                                                                 <div class="row">
                                                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                                                         <div class="form-group">
-                                                                            <strong>Kelompok Pelanggan</strong>
-                                                                            <select name="kelompokpelanggan"
-                                                                                class="form-control" id="">
-                                                                                <option value="Sosial" {{ $row->kelompok_pelanggan == "Sosial" ? 'selected="selected"' : '' }}>Sosial</option>
-                                                                                <option value="Rumah Tangga A" {{ $row->kelompok_pelanggan == "Rumah Tangga A" ? 'selected="selected"' : '' }}>Rumah
-                                                                                    Tangga A</option>
-                                                                                <option value="Rumah Tangga B" {{ $row->kelompok_pelanggan == "Rumah Tangga B" ? 'selected="selected"' : '' }}>Rumah
-                                                                                    Tangga B</option>
-                                                                                <option value="Dinas Instansi" {{ $row->kelompok_pelanggan == "Dinas Instansi" ? 'selected="selected"' : '' }}>Dinas
-                                                                                    Instansi</option>
-                                                                                <option value="Niaga" {{ $row->kelompok_pelanggan == "Niaga" ? 'selected="selected"' : '' }}>Niaga</option>
-                                                                                <option value="Industri" {{ $row->kelompok_pelanggan == "Industri" ? 'selected="selected"' : '' }}>Industri
-                                                                                </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                                                        <div class="form-group">
-                                                                            <strong>Harga Pemakaian</strong>
-                                                                            <input type="number" name="hargapemakaian" value="{{ $row->hargapemakaian }}"
+                                                                            <strong>Profile ID</strong>
+                                                                            <input type="number" name="profile_id"
+                                                                                value="{{ $row->profile_id }}"
                                                                                 class="form-control"
-                                                                                placeholder="Harga Pemakaian">
+                                                                                placeholder="Profile ID">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                                                         <div class="form-group">
-                                                                            <strong>Biaya Pemeliharaan</strong>
-                                                                            <input type="number"
-                                                                                name="biayapemeliharaan" value="{{ $row->biayapemeliharaan }}"
+                                                                            <strong>Nama Lengkap</strong>
+                                                                            <input type="text" name="namalengkap"
+                                                                                value="{{ $row->namalengkap }}"
                                                                                 class="form-control"
-                                                                                placeholder="Biaya Pemeliharaan">
+                                                                                placeholder="Nama Lengkap">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                                                         <div class="form-group">
-                                                                            <strong>Biaya Administrasi</strong>
-                                                                            <input type="number"
-                                                                                name="biayaadministrasi" value="{{ $row->biayaadministrasi }}"
+                                                                            <strong>Nomor Telp</strong>
+                                                                            <input type="number" name="telp"
+                                                                                value="{{ $row->telp }}"
                                                                                 class="form-control"
-                                                                                placeholder="Biaya Administrasi">
+                                                                                placeholder="Nomor Telp">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Alamat</strong>
+                                                                            <input type="text" name="alamat"
+                                                                                value="{{ $row->alamat }}"
+                                                                                class="form-control"
+                                                                                placeholder="Alamat">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Nomor Sambungan</strong>
+                                                                            <input type="number" name="nosambungan"
+                                                                                value="{{ $row->nosambungan }}"
+                                                                                class="form-control"
+                                                                                placeholder="Nomor Sambungan">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Bukti Pembayaran</strong>
+                                                                            <input type="file" name="buktipembayaran"
+                                                                                value="{{ $row->buktipembayaran }}"
+                                                                                class="form-control">
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
-                                                        </div>
-
-
-
-
-                                                        <div class="modal-footer">
-                                                            <button type="button"
-                                                                class="btn btn-light-primary btn-sm font-weight-bold"
-                                                                data-dismiss="modal">Batal</button>
-                                                            <button type="submit"
-                                                                class="btn btn-warning btn-sm font-weight-bold">Simpan dan Perbarui</button>
-                                                        </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button"
+                                                                    class="btn btn-light-primary btn-sm font-weight-bold"
+                                                                    data-dismiss="modal">Batal</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-warning btn-sm font-weight-bold">Simpan
+                                                                    dan Perbarui</button>
+                                                            </div>
 
                                                         </form>
                                                     </div>
@@ -186,7 +204,7 @@
                                     </tr>
 
                                     @php
-                                        $nomor++;
+                                    $nomor++;
                                     @endphp
 
                                     @endforeach
@@ -204,7 +222,7 @@
                             <!--begin::Info-->
                             <div class="d-flex align-items-center flex-wrap mr-2">
                                 <!--begin::Page Title-->
-                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tarif Air Minum</h5>
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pelanggan PDAM</h5>
                                 <!--end::Page Title-->
 
                             </div>
@@ -229,18 +247,22 @@
     <!--end::Main-->
     @include('admin.master.itemtopbar')
 
-    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
-		<!--begin::Global Config(global config for global JS scripts)-->
-		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
-		<!--end::Global Config-->
-		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="assets1/plugins/global/plugins.bundle.js"></script>
-		<script src="assets1/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="assets1/js/scripts.bundle.js"></script>
-		<!--end::Global Theme Bundle-->
-		<!--begin::Page Scripts(used by this page)-->
-		<script src="assets1/js/pages/crud/ktdatatable/base/html-table.js"></script>
-		<!--end::Page Scripts-->
+    <script>
+        var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
+    </script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+        var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };
+    </script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="assets1/plugins/global/plugins.bundle.js"></script>
+    <script src="assets1/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="assets1/js/scripts.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets1/js/pages/crud/ktdatatable/base/html-table.js"></script>
+    <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
 

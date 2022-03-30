@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TarifairController;
+use App\Http\Controllers\KritiksaranController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
@@ -41,12 +43,10 @@ Route::get('/dbpetugas', function () {
 
 //Tarif Air
 Route::resource('petugas.tarifair','TarifairController');
-Route::get('/index', [App\Http\Controllers\TarifairController::class, 'index'])->name('tarifair.index');
-Route::get('/create', [App\Http\Controllers\TarifairController::class, 'create'])->name('tarifair.create');
+Route::get('/index', [TarifairController::class, 'index'])->name('tarifair.index');
+Route::get('/create', [TarifairController::class, 'create'])->name('tarifair.create');
 //tampil dihal utama
-Route::get('/index2', [App\Http\Controllers\TarifairController::class, 'index2'])->name('halamantarifair');
-
-
+Route::get('/index2', [TarifairController::class, 'index2'])->name('halamantarifair');
 
 
 /** Modules :: Login */
@@ -81,3 +81,15 @@ Route::get('tarif/delete/{id}', [TarifairController::class, 'delete']);
 // Route::get('tarif/edit/{id}', [TarifairController::class, 'viewedit']);
 Route::post('tarif/edit/{id}', [TarifairController::class, 'update']);
 
+/** Kritik Saran */
+// Route::resource('admin.kritiksaran','KritiksaranController');
+Route::get('/kritiksaranindex', [KritiksaranController::class, 'index'])->name('/kritiksaranindex');
+Route::get('kritiksaran/create', [KritiksaranController::class, 'create']);
+Route::post('kritiksaran/create', [KritiksaranController::class, 'process']);
+
+/**Data Pelanggan */
+Route::get('pelangganindex', [PelangganController::class, 'index'])->name('/pelangganindex');
+Route::get('pelanggancreate', [PelangganController::class, 'create'])->name('/pelanggancreate');
+Route::post('pelanggancreate', [PelangganController::class, 'process'])->name('/pelanggancreate');
+Route::get('pelanggan/delete/{id}', [PelangganController::class, 'delete']);
+Route::post('pelanggan/edit/{id}', [PelangganController::class, 'update']);

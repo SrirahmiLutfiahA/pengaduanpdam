@@ -98,6 +98,6 @@ class TarifairController extends Controller
     public function index2()
     {
         $tarifairs = tarifair::all();
-        return view('halamantarifair')->with('tarifairs',$tarifairs);
+        return view('welcome')->with('tarifairs',$tarifairs);
     }
 }
