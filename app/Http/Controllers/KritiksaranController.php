@@ -24,18 +24,19 @@ class KritiksaranController extends Controller
         $getNama = $request->input('nama');
         $getEmail = $request->input('email');
         $getPesan = $request->input('pesan');
+        $getIp    = $request->input('ip');
 
         // insert to db 
         $data = array(
 
-            'nama' => $getNama,
-            'email'=> $getEmail,
+            'nama'  => $getNama,
+            'email' => $getEmail,
             'pesan' => $getPesan,
+            'ip'    => $getIp
         );
-        
-        kritiksaran::create($data);
 
-        return redirect('kritiksaranindex');
+        kritiksaran::create($data);
+        return redirect('/')->with('pesan', 'Terima kasih telah memberikan kami feedback kritik dan saran');
     }
 
 }

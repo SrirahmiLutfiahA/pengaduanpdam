@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::post('/register', [LoginController::class, 'proses_registrasi']);
 
 Route::get('/dbadmin', function () {
     return view('admin.dbadmin');

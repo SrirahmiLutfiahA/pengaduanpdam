@@ -48,34 +48,74 @@
 								<h3>REGISTER PELANGGAN PDAM TIRTA LESTARI TUBAN</h3><br>
 								<p class="opacity-60">Masukkan data Anda</p>
 							</div>
-							<form class="form text-center" id="kt_login_signup_form">
+							<form class="form text-center" action="/register" method="POST" enctype="multipart/form-data">
+
+								@csrf
 								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Nama Lengkap" name="fullname" />
+									<input value="{{ old('fullname') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Nama Lengkap" name="fullname" />
+									@error('fullname')
+										<span class="">
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
                                 <div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Jenis Kelamin" name="gender" />
+									<input value="{{ old('telepon') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="number" placeholder="Nomor Telepon" name="telepon" />
+									@error('telepon')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
                                 <div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="number" placeholder="Nomor Telepon" name="telepon" />
+									<input value="{{ old('alamat') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Alamat" name="alamat" />
+									@error('alamat')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
+
                                 <div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Alamat" name="alamat" />
-								</div>
-                                <div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Nomor Sambungan Air" name="no_sambungan" />
-								</div>
-								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
-								</div>
-								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />
+									<input  value="{{ old('no_sambungan') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Nomor Sambungan Air" name="no_sambungan" />
+									@error('no_sambungan')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="password" placeholder="Konfirmasi Password" name="cpassword" />
+									<input value="{{ old('email') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="text" placeholder="Email" name="email" autocomplete="off" />
+									@error('email')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
+								</div>
+								<div class="form-group">
+									<input value="{{ old('password') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="password" placeholder="Password" name="password" />
+									@error('password')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
+								</div>
+								<div class="form-group">
+									<input value="{{ old('password_confirmation') }}" class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="password" placeholder="Konfirmasi Password" name="password_confirmation" />
+									@error('password_confirmation')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
                                 <div class="form-group">
 									<p>Upload Bukti Pembayaran Terakhir</p>
 									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="file" placeholder="Upload Bukti Pembayaran Terakhir" name="bukti_pembayaran" />
+									@error('bukti_pembayaran')
+										<span  >
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								</div>
 								<div class="form-group text-left px-8">
 									<div class="checkbox-inline">
@@ -87,7 +127,7 @@
 									<div class="form-text text-muted text-center"></div>
 								</div>
 								<div class="form-group">
-									<button id="kt_login_signup_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Daftar</button><br>
+									<button type="" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 m-2">Daftar</button><br>
 									<a href="/login" class="text-white font-weight-bold">Sudah Mempunyai Akun ? Login Disini</a>
                                     </div>
 							</form>

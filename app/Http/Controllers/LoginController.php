@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pelanggan;
+use App\Models\profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -47,13 +49,21 @@ class LoginController extends Controller
             // @TODO 3 : cek kata sandi 
             if ( Hash::check($getPassword, $profile->password) ) {
 
-                $sess = array(
+                $username = $profile->username;
+                if ( $profile->level == "pelanggan" ) {
 
+                    $pelanggan = pelanggan::where('profile_id', $profile->id)->first();
+                    $username = $pelanggan->namalengkap;
+                }
+
+                $sess = array(
                     'id'        => $profile->id, 
-                    'username'  => $profile->username, 
+                    'username'  => $username, 
                     'email'     => $profile->email,
                     'level'     => $profile->level,
                 );
+
+                
 
                 $request->session()->put( $sess );
                 // redirect 
@@ -73,8 +83,6 @@ class LoginController extends Controller
     }
 
 
-
-
     function logout( Request $request ) {
 
         $request->session()->forget('id');
@@ -83,5 +91,70 @@ class LoginController extends Controller
         
         
         return redirect('login');
+    }
+
+
+
+
+    /** prosess registrasi */
+    function proses_registrasi( Request $request ) {
+
+        $request->validate([
+
+            'fullname' => 'required',
+            'telepon'  => 'required',
+            'alamat'=> 'required',
+            'email' => 'required',
+            'no_sambungan'       => 'required',
+            'bukti_pembayaran'   => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'password'          => 'required|string|min:8|confirmed',
+            'password_confirmation'=> "required",
+        ]);
+
+
+        /** Upload file */
+        $file = $request->file('bukti_pembayaran');
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        $path = "bukti_pembayaran";
+        $file->move($path, $nama_file);
+
+        $nama_lengkap = $request->input('fullname');
+        $telepon = $request->input('telepon');
+        $alamat  = $request->input('alamat');
+        $no_sambungan = $request->input('no_sambungan');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        
+        // $agree = $request->input('agree');
+
+
+        $profile = profile::create([
+
+            'username'  => "",
+            'password'  => Hash::make($password),
+            'email'     => $email,
+            'level'     => "pelanggan" 
+        ]);
+
+        $ambil_id_profile_terakhir = $profile->id;
+
+
+        // eloquent 
+        pelanggan::create([
+            
+            'profile_id'    => $ambil_id_profile_terakhir,
+            'namalengkap'  => $nama_lengkap,
+            'telp'          => $telepon, 
+            'alamat'        => $alamat,
+            'nosambungan'   => $no_sambungan,
+            'buktipembayaran' => $nama_file
+        ]);
+
+
+        return redirect('login');
+        
+
+
     }
 }

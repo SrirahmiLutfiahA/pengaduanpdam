@@ -111,9 +111,20 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
+                        
+                        @if ( Session::has('pesan'))
+							<div class="alert alert-success">
+                                <h5>Kritik Saran Terkirim !</h5>
+							    <p>Terima kasih telah memberikan kami feedback kritik dan saran</p>
+						    </div>
+						@endif
+
                         <form action="kritiksaran/create" method="POST">
                             @csrf
                             <!-- Name input-->
+
+                            <input type="hidden" name="ip" value="{{ get_client_ip() }}" />
+
                             <div class="form-floating mb-3">
                                 <input class="form-control" name="nama" type="text" placeholder="Masukkan nama Anda..." data-sb-validations="required" />
                                 <label for="name">Nama Lengkap</label>
@@ -156,6 +167,30 @@
                 </div>
             </div>
         </section>
+
+        @php 
+            
+            // Function to get the client IP address
+            function get_client_ip() {
+                $ipaddress = '';
+                if (isset($_SERVER['HTTP_CLIENT_IP']))
+                    $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+                else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+                    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                else if(isset($_SERVER['HTTP_X_FORWARDED']))
+                    $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+                else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+                    $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+                else if(isset($_SERVER['HTTP_FORWARDED']))
+                    $ipaddress = $_SERVER['HTTP_FORWARDED'];
+                else if(isset($_SERVER['REMOTE_ADDR']))
+                    $ipaddress = $_SERVER['REMOTE_ADDR'];
+                else
+                    $ipaddress = 'UNKNOWN';
+                return $ipaddress;
+            }
+
+        @endphp
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Sistem Informasi Pengaduan PDAM</div></div>

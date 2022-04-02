@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kritiksaran extends Model
+class Registrasi extends Model
 {
     use HasFactory;
-    
-    protected $table='kritiksarans';
-    protected $fillable = ['nama','email','pesan', 'ip'];
 }
