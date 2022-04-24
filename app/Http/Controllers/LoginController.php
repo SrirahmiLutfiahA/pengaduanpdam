@@ -67,7 +67,7 @@ class LoginController extends Controller
 
                 $request->session()->put( $sess );
                 // redirect 
-                return redirect('dashboard');
+                return redirect('/dashboardpelanggan');
 
             } else {
 

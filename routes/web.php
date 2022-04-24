@@ -6,7 +6,8 @@ use App\Http\Controllers\KritiksaranController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PengaduanController;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -68,7 +69,7 @@ Route::get('/make-password', function(){
 
 /** Modules :: Dashboard */
 Route::get('dashboard', [DashboardController::class, 'index']);
-
+Route::get('dashboardpelanggan', [DashboardController::class, 'index2']);
 
 
 
@@ -94,3 +95,13 @@ Route::get('pelanggancreate', [PelangganController::class, 'create'])->name('/pe
 Route::post('pelanggancreate', [PelangganController::class, 'process'])->name('/pelanggancreate');
 Route::get('pelanggan/delete/{id}', [PelangganController::class, 'delete']);
 Route::post('pelanggan/edit/{id}', [PelangganController::class, 'update']);
+
+/** Modules :: Kategori */
+Route::get('kategori', [KategoriController::class, 'index']);
+Route::get('kategoricreate', [KategoriController::class, 'create']);
+Route::post('kategoricreate', [KategoriController::class, 'process']);
+Route::get('kategori/delete/{id}', [KategoriController::class, 'delete']);
+
+/** Pengaduan */
+
+Route::get('pengaduancreate', [PengaduanController::class, 'create']);

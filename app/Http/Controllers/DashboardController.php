@@ -11,6 +11,11 @@ class DashboardController extends Controller
         return view('admin.dbadmin');
     }
 
+    public function index2() {
+
+        return view('pelanggan.dbpelanggan');
+    }
+
 
 
 
