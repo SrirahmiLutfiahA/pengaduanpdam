@@ -22,27 +22,22 @@
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                    
-                    <form action="pengaduancreate" method="POST">
+                    <form action="pengaduancreate" method="POST" enctype="multipart/form-data">
                     
                         @csrf
 
                     <div class="card-body">
                     @php 
-                    $username = "Pelanggan";
-                    $telepon = "0000";
-                    $alamat = "isi alamat";
-                    $nosambungan = "0000";
-
-                    if ( session('username') ) {
-
-                        $namalengkap = session('username');
-                    }
+                        $namalengkap = $pelanggan->namalengkap;
+                        $telepon = $pelanggan->telp;
+                        $alamat = $pelanggan->alamat;
+                        $nosambungan = $pelanggan->nosambungan;
                     @endphp
                     <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Nama Lengkap</strong>
-                                    <input type="text" name="namalengkap" class="form-control" placeholder="{{ $username }}">
+                                    <input type="text" name="namalengkap" class="form-control" value="{{ $namalengkap }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +45,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>No Telepon</strong>
-                                    <input type="text" name="telepon" class="form-control" placeholder="{{ $username }}">
+                                    <input type="text" name="telepon" class="form-control" value="{{ $telepon }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +53,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Alamat</strong>
-                                    <input type="text" name="alamat" class="form-control" placeholder="{{ $username }}">
+                                    <input type="text" name="alamat" class="form-control" value="{{ $alamat }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -66,29 +61,42 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>No Sambungan</strong>
-                                    <input type="text" name="nosambungan" class="form-control" placeholder="{{ $username }}">
+                                    <input type="text" name="nosambungan" class="form-control" value="{{ $nosambungan }}" disabled>
                                 </div>
                             </div>
                         </div>
-                    <div class="row">
+                        <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Kategori Aduan</strong>
-                                    <br><br>
+                                    <select name="kategori" class="form-control" required>
+                                        
+                                        <option value="">-- Pilih Kategori Aduan --</option>
+                                        @foreach ( $kategori AS $kt )
+                                        
+                                        <option value="{{ $kt->id }}">{{ $kt->namakategori }}</option>
+
+                                        @endforeach
+                                    </select>
                             
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Keterangan Keluhan</strong>
-                                        <input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Keterangan Keluhan</strong>
+                                    <input type="text" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" placeholder="Keterangan">
+                                    @error('keterangan')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="row">
-                                <br>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-12">
                                 <strong>Bukti Foto</strong>
                                 <input type="file" class="form-control @error('fotoaduan') is-invalid @enderror" name="fotoaduan">
 
@@ -99,31 +107,33 @@
                                 </div>
                                 @enderror
                             </div>
+                        </div>
+                        
                         <br><br>
                         <button type="submit" class="btn btn-primary">Simpan</button>
 
                          <!--begin::Subheader-->
-                    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-                        <div
-                            class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-                            <!--begin::Info-->
-                            <div class="d-flex align-items-center flex-wrap mr-2">
-                                <!--begin::Page Title-->
-                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Tulis Pengaduan</h5>
-                                <!--end::Page Title-->
+                         <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                             <div
+                                 class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                 <!--begin::Info-->
+                                 <div class="d-flex align-items-center flex-wrap mr-2">
+                                     <!--begin::Page Title-->
+                                     <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Tulis Pengaduan</h5>
+                                     <!--end::Page Title-->
 
-                            </div>
-                            <!--end::Info-->
-                            <!--begin::Toolbar-->
-                            <div class="d-flex align-items-center">
+                                 </div>
+                                 <!--end::Info-->
+                                 <!--begin::Toolbar-->
+                                 <div class="d-flex align-items-center">
 
 
-                            </div>
-                            <!--end::Toolbar-->
-                        </div>
-                    </div>
-                    <!--end::Subheader-->
-                    </div>
+                                 </div>
+                                 <!--end::Toolbar-->
+                             </div>
+                         </div>
+                         <!--end::Subheader-->
+                         </div>
 
                     </form>
                     <!--end::Content-->

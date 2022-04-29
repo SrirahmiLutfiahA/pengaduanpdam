@@ -50,10 +50,26 @@ class LoginController extends Controller
             if ( Hash::check($getPassword, $profile->password) ) {
 
                 $username = $profile->username;
+
+                $link = "";
+
                 if ( $profile->level == "pelanggan" ) {
 
                     $pelanggan = pelanggan::where('profile_id', $profile->id)->first();
                     $username = $pelanggan->namalengkap;
+
+                    // Link redirect
+                    $link = "/dashboardpelanggan";
+                
+                } else if ( $profile->level == "petugas" ) {
+
+                    // login sebagai petugas
+                    $link = "dbpetugas";
+                } else {
+
+
+                    // login sebagai admin 
+                    $link = "dashboard";
                 }
 
                 $sess = array(
@@ -67,7 +83,7 @@ class LoginController extends Controller
 
                 $request->session()->put( $sess );
                 // redirect 
-                return redirect('/dashboardpelanggan');
+                return redirect( $link );
 
             } else {
 

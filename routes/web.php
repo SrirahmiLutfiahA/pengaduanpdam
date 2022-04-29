@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\RiwayatController;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -105,3 +106,13 @@ Route::get('kategori/delete/{id}', [KategoriController::class, 'delete']);
 /** Pengaduan */
 
 Route::get('pengaduancreate', [PengaduanController::class, 'create']);
+Route::post('pengaduancreate', [PengaduanController::class, 'process']);
+
+Route::get('send', [PengaduanController::class, 'confirmation']);
+
+
+
+
+/** Riwayat Pengaduan */
+Route::get('riwayat', [RiwayatController::class, 'index']);
+Route::get('riwayat/detail/{id}', [RiwayatController::class, 'detail']);

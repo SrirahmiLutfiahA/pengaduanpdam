@@ -7,7 +7,7 @@
         <p></p>
         <p></p>
         <a href="#" class="brand-logo">
-            <img alt="Logo" src="assets1/media/logos/logo-pdam.png" width="150px" />
+            <img alt="Logo" src="{{ asset('assets1/media/logos/logo-pdam.png') }}" width="150px" />
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link">
+                    <a href="{{ url('riwayat') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:assets1/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

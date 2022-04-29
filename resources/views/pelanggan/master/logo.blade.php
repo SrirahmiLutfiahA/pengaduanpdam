@@ -31,7 +31,7 @@
     <!--begin::Logo-->
     <div class="imgR">
         <a href="#" class="brand-logo">
-            <img alt="Logo" src="assets1/media/logos/logo-pdam.png" />
+            <img alt="Logo" src="{{ asset('assets1/media/logos/logo-pdam.png') }}" />
         </a>
     </div>
     <!--end::Logo-->
