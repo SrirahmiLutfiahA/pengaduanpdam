@@ -39,4 +39,19 @@ class KritiksaranController extends Controller
         return redirect('/')->with('pesan', 'Terima kasih telah memberikan kami feedback kritik dan saran');
     }
 
+
+function delete( $id ) {
+
+    $kritiksaran = kritiksaran::find( $id );
+
+    if ( $kritiksaran ) {
+
+        $kritiksaran->delete();
+        return redirect( '/kritiksaranindex' )->with('pesan', 'Berhasil terhapus');
+
+    } else {
+
+        return abort(404);
+    }
+}
 }

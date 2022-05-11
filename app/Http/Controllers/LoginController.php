@@ -64,7 +64,7 @@ class LoginController extends Controller
                 } else if ( $profile->level == "petugas" ) {
 
                     // login sebagai petugas
-                    $link = "dbpetugas";
+                    $link = "/dashboardpetugas";
                 } else {
 
 

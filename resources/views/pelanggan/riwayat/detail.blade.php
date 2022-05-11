@@ -53,7 +53,7 @@
                                     } else if ( $pengaduan->status == "selesai_perbaikan" ) {
 
                                         $color = "info";
-                                        $text = "Selesai Perbaikkan";
+                                        $text = "Selesai Perbaikan";
                                     } else {
 
                                         $color = "success";

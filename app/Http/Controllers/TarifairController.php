@@ -95,9 +95,9 @@ class TarifairController extends Controller
 
 
     //tampil dihalaman utama
-    public function index2()
+    public function indextarif()
     {
         $tarifairs = tarifair::all();
-        return view('welcome')->with('tarifairs',$tarifairs);
+        return view('halamantarifair')->with('tarifairs',$tarifairs);
     }
 }

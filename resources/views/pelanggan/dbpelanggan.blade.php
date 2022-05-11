@@ -53,8 +53,20 @@
                                 <!--begin::List Widget 9-->
                                 <div class="card card-custom card-stretch gutter-b">
                                     <!--begin::Body-->
-                                    <div class="card-body pt-4">
-                                        ini adalah isi dashboard
+                                    <div class="card-body pt-8 col-md-6">
+                                        TATA CARA PENGADUAN
+                                        <br><br><br>
+                                        1. Klik menu tulis pengaduan
+                                        <br>
+                                        2. Mengisi informasi sesuai dengan perintah
+                                        <br>
+                                        3. Klik kirim
+                                        <br>
+                                        4. Jika benar maka sudah pengaduan terkirim
+                                        <br>
+                                        5. Cek pengaduan anda pada menu riwayat pengaduan
+                                        <br>
+                                        6. Gunakan bahasa yang sopan!
                                     </div>
                                     <!--end: Card Body-->
                                 </div>

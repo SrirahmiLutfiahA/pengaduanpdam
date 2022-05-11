@@ -53,10 +53,11 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        <th title="Field #1">Nama</th>
-                                        <th title="Field #2">Email</th>
-                                        <th title="Field #3">Pesan</th>
-                                        <th title="Field #5">Aksi</th>
+                                        <th title="Field #1">Tanggal Kritik Saran</th>
+                                        <th title="Field #2">Nama Pelanggan</th>
+                                        <th title="Field #3">Email</th>
+                                        <th title="Field #5">Pesan</th>
+                                        <th title="Field #6">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,13 +67,13 @@
 
                                     @foreach ( $kritiksarans AS $row )
                                     <tr>
+                                        <td>{{ $row->created_at}}</td>
                                         <td>{{ $row->nama }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>{{ $row->pesan }}</td>
                                         <td>
-                                            {{-- <a href="tarif/delete/{{ $row->id }}"
-                                                onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->kelompokpelanggan }}')"
-                                                class="btn btn-sm btn-light-danger">Hapus</a> --}}
+                                        <a href="kritiksaran/delete/{{ $row->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->nama }}')" class="btn btn-sm btn-light-danger">Hapus</a>
+                                        
                                         </td>
                                     </tr>
 

@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Halaman Utama</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/index2">Tarif Air Minum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/indextarif">Tarif Air Minum</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,13 +50,37 @@
             </div>
         </header>
            
-        <!-- Kritik & Saran-->
-        <section class="page-section" id="kritiksaran">
+        <!-- Tarif -->
+        <section class="page-section" id="tarifair">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Daftar Tarif Air</h2>
+                        <h2 class="mt-0">Daftar Tarif Air Minum</h2>
+                        <br><br><br>
+                      <!--begin: Datatable-->
+<div class="row">
+@php 
+        $nomor = 1;
+        @endphp 
+        @foreach ( $tarifairs AS $row )
+  <div class="col-sm-6">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> Kelompok Pelanggan <br>{{ $row->kelompok_pelanggan }}</h5>
+        <p class="card-text"> Harga Pemakaian 0-10M3: <br>{{ number_format($row->hargapemakaian, 3) }}</p>
+        <p class="card-text"> Biaya Pemeliharaan Meter : <br> {{ number_format($row->biayapemeliharaan, 3) }}</p>
+        <p class="card-text"> Biaya Administrasi Rekening : <br> {{ number_format($row->biayaadministrasi, 3) }}</p>
+      </div>
+    </div>
+  </div>          
+                                    @php
+                                        $nomor++;
+                                    @endphp
+
+                                    @endforeach
+                                
                     </div>
+                </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">

@@ -30,7 +30,7 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/index2">Tarif Air Minum</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/indextarif">Tarif Air Minum</a></li>
                         <li class="nav-item"><a class="nav-link" href="#kritiksaran">Kritik dan Saran</a></li>
                     </ul>
                 </div>
@@ -58,35 +58,9 @@
                 <section class="page-section bg-dark text-white">
                     <div class="container px-4 px-lg-5 text-center">
                         <h2 class="mb-4">Tarif Air Minum</h2>
-                        <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Daftar tarif air minum</a>
+                        <a class="btn btn-light btn-xl" href="/indextarif">Daftar tarif air minum</a>
                    
-                        {{-- <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
-                            <thead>
-                                <tr>
-                                    <th title="Field #1">Kelompok Pelanggan</th>
-                                    <th title="Field #2">Harga Pemakaian</th>
-                                    <th title="Field #3">Biaya Pemeliharaan</th>
-                                    <th title="Field #4">Biaya Administrasi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php 
-                                    $nomor = 1;
-                                @endphp 
-                                @foreach ( $tarifairs AS $row )
-                                <tr>
-                                    <td>{{ $row->kelompok_pelanggan }}</td>
-                                    <td>{{ number_format($row->hargapemakaian, 3) }}</td>
-                                    <td>{{ number_format($row->biayapemeliharaan, 3) }}</td>
-                                    <td>{{ number_format($row->biayaadministrasi, 3) }}</td>
-                                </tr>
-                                @php
-                                    $nomor++;
-                                @endphp
-                                @endforeach
-                            </tbody>
-                        </table>
-                    --}}
+
                     </div>
                 </section>
             </div>

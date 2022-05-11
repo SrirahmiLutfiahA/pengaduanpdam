@@ -110,7 +110,7 @@
                         </div>
                         
                         <br><br>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Kirim</button>
 
                          <!--begin::Subheader-->
                          <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">

@@ -16,6 +16,11 @@ class DashboardController extends Controller
         return view('pelanggan.dbpelanggan');
     }
 
+    public function index3() {
+
+        return view('trandis.dbpetugas');
+    }
+
 
 
 

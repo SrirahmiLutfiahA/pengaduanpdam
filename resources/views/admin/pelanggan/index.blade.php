@@ -72,13 +72,12 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        <th title="Field #1">Profile ID</th>
-                                        <th title="Field #2">Nama Lengkap</th>
-                                        <th title="Field #3">Nomor Telp</th>
-                                        <th title="Field #4">Alamat</th>
-                                        <th title="Field #5">Nomor Sambungan</th>
-                                        <th title="Field #6">Bukti Pembayaran</th>
-                                        <th title="Field #7">Aksi</th>
+                                        <th title="Field #1">Nama Lengkap</th>
+                                        <th title="Field #2">Nomor Telp</th>
+                                        <th title="Field #3">Alamat</th>
+                                        <th title="Field #4">Nomor Sambungan</th>
+                                        <th title="Field #5">Bukti Pembayaran</th>
+                                        <th title="Field #6">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,7 +89,6 @@
 
                                     @foreach ( $pelanggans AS $row )
                                     <tr>
-                                        <td>{{ $row->profile_id }}</td>
                                         <td>{{ $row->namalengkap }}</td>
                                         <td>{{ $row->telp }}</td>
                                         <td>{{ $row->alamat }}</td>
@@ -119,7 +117,7 @@
                                                             @csrf
                                                             <div class="modal-body">
                                                                 <h3>Pengubahan Informasi</h3>
-                                                                <p>Sunting data {{ $row->profile_id }}</p>
+                                                                <p>Sunting data {{ $row->namalengkap }}</p>
                                                                 <div class="row">
                                                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                                                         <div class="form-group">

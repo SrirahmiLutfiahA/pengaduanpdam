@@ -66,7 +66,7 @@ class PengaduanController extends Controller
 
         pengaduan::create( $isi_pengaduan );
 
-        redirect();
+        return redirect('send');
     }
 
 

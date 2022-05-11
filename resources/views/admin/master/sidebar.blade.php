@@ -51,7 +51,7 @@
                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                 </li> --}}
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
+                    <a href="/dashboard" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:assets1/media/svg/icons/Media/Equalizer.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -68,26 +68,7 @@
                         <span class="menu-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets1/media/svg/icons/Design/Layers.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16"
-                                        rx="1.5" />
-                                    <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5" />
-                                    <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5" />
-                                    <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5" />
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Grafik Pengaduan</span>
-                    </a>
-                </li>
+                
                 <li class="menu-item" aria-haspopup="true">
                     <a href="/kritiksaranindex" class="menu-link">
                         <span class="svg-icon menu-icon">

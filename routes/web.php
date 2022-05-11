@@ -49,7 +49,7 @@ Route::resource('petugas.tarifair','TarifairController');
 Route::get('/index', [TarifairController::class, 'index'])->name('tarifair.index');
 Route::get('/create', [TarifairController::class, 'create'])->name('tarifair.create');
 //tampil dihal utama
-Route::get('/index2', [TarifairController::class, 'index2'])->name('halamantarifair');
+Route::get('/indextarif', [TarifairController::class, 'indextarif'])->name('halamantarifair');
 
 
 /** Modules :: Login */
@@ -71,7 +71,7 @@ Route::get('/make-password', function(){
 /** Modules :: Dashboard */
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboardpelanggan', [DashboardController::class, 'index2']);
-
+Route::get('dashboardpetugas', [DashboardController::class, 'index3']);
 
 
 
@@ -89,6 +89,7 @@ Route::post('tarif/edit/{id}', [TarifairController::class, 'update']);
 Route::get('/kritiksaranindex', [KritiksaranController::class, 'index'])->name('/kritiksaranindex');
 Route::get('kritiksaran/create', [KritiksaranController::class, 'create']);
 Route::post('kritiksaran/create', [KritiksaranController::class, 'process']);
+Route::get('kritiksaran/delete/{id}', [KritiksaranController::class, 'delete']);
 
 /**Data Pelanggan */
 Route::get('pelangganindex', [PelangganController::class, 'index'])->name('/pelangganindex');
