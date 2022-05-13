@@ -91,8 +91,7 @@
                                         <td>{{ $row->pelanggan_id }}</td>
                                         <td>{{ $row->keterangan}}</td>
                                         <td>
-                                            <a href="javascript:;" data-toggle="modal" data-target="#edit"
-                                                class="btn btn-sm btn-light-warning">Lihat Detail</a>
+                                            <a href="{{ url('riwayat/detail/'. $row->id) }}" class="btn btn-sm btn-light-warning">Lihat Detail</a>
                                             <a href="#"
                                                 class="btn btn-sm btn-light-danger">Eksekusi</a>
 

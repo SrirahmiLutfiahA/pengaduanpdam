@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('pelanggan.master.header')
+
+
+@if (session('level') == "admin")
+
+    @include('admin.master.header')
+
+
+@elseif (session('level') == "petugas")
+
+    @include('trandis.master.header')
+
+@else
+
+    @include('pelanggan.master.header')
+
+@endif
 <!--begin::Body-->
 
 <body id="kt_body"
@@ -12,12 +27,41 @@
         <div class="d-flex flex-row flex-column-fluid page">
             
 
-            @include('pelanggan.master.sidebar')
+            @if (session('level') == "admin")
+
+                @include('admin.master.sidebar')
+
+
+            @elseif (session('level') == "petugas")
+
+                @include('trandis.master.sidebar')
+
+            @else
+
+                @include('pelanggan.master.sidebar')
+
+            @endif
+
+            
          
             <!--begin::Wrapper-->
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
                 
-                @include('pelanggan.master.topbar')
+                @if (session('level') == "admin")
+
+                    @include('admin.master.topbar')
+
+
+                @elseif (session('level') == "petugas")
+
+                    @include('trandis.master.topbar')
+
+                @else
+
+                    @include('pelanggan.master.topbar')
+
+                @endif
+                
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -31,26 +75,26 @@
                                     $color = "warning";
                                     $text = "Menunggu";
 
-                                    if ( $pengaduan->status == "menunggu" ) {
+                                    if ( $pengaduan->status == 0 ) {
 
                                         $color = "warning";
                                         $text = "Menunggu";
 
-                                    } else if ( $pengaduan->status == "ditolak" ) {
+                                    } else if ( $pengaduan->status == 1 ) {
 
                                         $color = "danger";
                                         $text = "Pengaduan Ditolak";
                                     
-                                    } else if ( $pengaduan->status == "diajukan" ) {
+                                    } else if ( $pengaduan->status == 2 ) {
 
-                                        $color = "danger";
-                                        $text = "Pengaduan Ditolak";
+                                        $color = "warning";
+                                        $text = "Diajukan ke Petugas";
    
-                                    } else if ( $pengaduan->status == "diperbaiki" ) {
+                                    } else if ( $pengaduan->status == 3 ) {
 
                                         $color = "info";
                                         $text = "Diperbaiki";
-                                    } else if ( $pengaduan->status == "selesai_perbaikan" ) {
+                                    } else if ( $pengaduan->status == 4 ) {
 
                                         $color = "info";
                                         $text = "Selesai Perbaikan";
@@ -191,13 +235,13 @@
 
 
 
-                                                    if ( $pengaduan->status == "diajukan" || $pengaduan->status == "diperbaiki" || $pengaduan->status == "selesai_perbaikan" || $pengaduan->status == "selesai"  ) {
+                                                    if ( $pengaduan->status == 2 || $pengaduan->status == 3 || $pengaduan->status == 4 || $pengaduan->status == 5 ) {
 
                                                         $colorPersetujuanAdmin = "success";
                                                         $textPersetujuanAdmin  = $pengaduan->balasanadmin;
                                                         $tglPersetujuanAdmin = date('d M Y H.i A', strtotime( $pengaduan->laporan_tanggal_admin	 ));
 
-                                                    } else if ( $pengaduan->status == "ditolak" ) {
+                                                    } else if ( $pengaduan->status == 1 ) {
 
                                                         $colorPersetujuanAdmin = "danger";
                                                         $textPersetujuanAdmin  = $pengaduan->balasanadmin;
@@ -220,6 +264,95 @@
                                                         <p class="font-weight-normal text-dark-50 pt-1 pb-2">
                                                             {{ $textPersetujuanAdmin }}
                                                         </p>
+
+
+
+
+
+
+
+
+                                                        @if ( session('level') == "admin" )
+
+                                                        {{-- Aktivitas Untuk Level : Admin --}}
+
+                                                            @if ( empty($pengaduan->laporan_tanggal_admin) ) 
+
+                                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-sm btn-warning">Tambahkan Persetujuan</button>
+                                                            
+                                                            @else 
+                                                                <button class="btn btn-sm btn-warning disabled">Tambahkan Persetujuan</button>
+
+                                                            @endif
+                                                        
+                                                        <!-- Modal-->
+                                                        <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    
+
+                                                                    <form action="{{ url('konfirmasipengaduan/'. $pengaduan->id) }}" method="POST">
+
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <i aria-hidden="true" class="ki ki-close"></i>
+                                                                        </button>
+
+                                                                        <h3>Konfirmasi Persetujuan</h3>
+                                                                        <p>Penjelasan terkait persetujuan perbaikan ....</p>
+
+
+                                                                        <div class="form-group">
+                                                                            <div class="radio-inline">
+                                                                                <label class="radio">
+                                                                                    <input type="radio" name="status_admin" value="1"/>
+                                                                                    <span></span>
+                                                                                    Ditolak
+                                                                                </label>
+                                                                                <label class="radio">
+                                                                                    <input type="radio" name="status_admin" value="2"/>
+                                                                                    <span></span>
+                                                                                    Diajukan
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        
+                                                                        <div class="form-group" id="form-penolakan-admin" style="display: none">
+                                                                            <label for="">Keterangan Penolakan</label>
+                                                                            <textarea name="keterangan" class="form-control" id="" placeholder="Masukkan alasan ..."></textarea>
+                                                                            <small>Berikan alasan mengapa terjadi penolakan</small>
+                                                                        </div>
+
+                                                                        <div class="well well-sm" id="pemberitahuan-admin" style="display: none; background-color: #f5f5f5; padding: 5px; border-radius: 5px">
+                                                                            <b>Pemberitahuan</b><br>
+                                                                            <small>Diajukan akan terjadi ....</small>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary font-weight-bold">Simpan Perubahan</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- End : Activity for userlevel admin --}}
+                                                        @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
@@ -359,6 +492,31 @@
 <!--end::Body-->
 
 </html>
+
+
+<script>
+
+
+    $(function() {
+
+
+        $('input[name="status_admin"]').on('change', function() {
+
+            let nilai = $(this).val();
+
+            if ( nilai == 1 ) {
+
+                $('#form-penolakan-admin').hide().show(500);
+                $('#pemberitahuan-admin').hide(500);
+
+            } else if ( nilai == 2 ) {
+
+                $('#pemberitahuan-admin').hide().show(500);
+                $('#form-penolakan-admin').hide(500);
+            }
+        })
+    })
+</script>
 
 
 

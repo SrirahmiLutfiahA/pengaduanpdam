@@ -70,9 +70,34 @@ class RiwayatController extends Controller
     function detail( $id = null ) {
 
         if ( $id ) {
-            
+
+            // ambil data pengaduan
+            $tb_pengaduan = DB::table('pengaduans')
+                                ->join('kategoris', 'kategoris.id', '=' ,'pengaduans.kategori_id')
+                                ->select('pengaduans.*', 'kategoris.namakategori')
+                                ->where('pengaduans.id', $id)
+                                ->first();
+
+
             /** Ambil identitas pelanggan */
-            $id_profile = session('id');
+            $id_profile = "";
+
+            if ( session('level') != "pelanggan" )  {
+
+                // apabila admin ingin mendetail
+                $id_pelanggan = $tb_pengaduan->pelanggan_id;
+
+                $tb_pelanggan = DB::table('pelanggans')->where('id', $id_pelanggan)->first();
+                $id_profile = $tb_pelanggan->profile_id;
+                
+                
+            } else {
+
+                // login sebagai pelanggan
+                $id_profile = session('id');
+            }
+
+            
             $tb_pelanggan = pelanggan::where('profile_id', $id_profile)->first();
 
 

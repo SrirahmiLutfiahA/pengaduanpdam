@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataPengaduanController extends Controller
 {
@@ -17,6 +18,36 @@ class DataPengaduanController extends Controller
     {
         $pengaduans = pengaduan::all();
         return view('trandis.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+
+
+
+    // proses perubahan pengaduan 
+    public function proses_pengubahan_pengaduan(Request $request, $id_pengaduan) {
+
+        $ambilStatus = $request->input('status_admin');
+        $keterangan  = null;
+
+
+        if ( $ambilStatus == 1 ) {
+
+            $keterangan = $request->input('keterangan');
+        }
+
+
+        $data = array(
+
+            'status'        => $ambilStatus,
+            'balasanadmin'  => $keterangan,
+            'laporan_tanggal_admin' => date('Y-m-d H:i:s'),
+        );
+
+
+        // update
+        DB::table('pengaduans')->where('id', $id_pengaduan)->update($data);
+
+        return redirect('riwayat/detail/'. $id_pengaduan);
     }
     
     // public function create()

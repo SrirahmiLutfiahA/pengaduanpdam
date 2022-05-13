@@ -7,7 +7,7 @@
         <p></p>
         <p></p>
         <a href="#" class="brand-logo">
-            <img alt="Logo" src="assets1/media/logos/logo-pdam.png" width="150px" />
+            <img alt="Logo" src="{{asset('assets1/media/logos/logo-pdam.png') }}" width="150px" />
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->

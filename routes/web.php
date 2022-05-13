@@ -121,3 +121,9 @@ Route::get('riwayat/detail/{id}', [RiwayatController::class, 'detail']);
 /**Data Pengaduan */
 Route::get('pengaduanindex', [DataPengaduanController::class, 'index'])->name('/pengaduanindex');
 Route::get('pengaduanindexpetugas', [DataPengaduanController::class, 'indexpetugas'])->name('/pengaduanindexpetugas');
+
+
+
+
+// Pengubahan status pengaduan : Admin
+Route::post('konfirmasipengaduan/{id_pengaduan}', [DataPengaduanController::class, 'proses_pengubahan_pengaduan']);

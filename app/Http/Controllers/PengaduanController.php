@@ -58,7 +58,6 @@ class PengaduanController extends Controller
 
             'pelanggan_id'  => $id_pelanggan, 
             'kategori_id'   => $kategori, 
-            'status'        => "menunggu",
             'keterangan'    => $keterangan,
             'fotoaduan'     => $nama_file,
         );

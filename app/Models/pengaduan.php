@@ -10,7 +10,7 @@ class pengaduan extends Model
     use HasFactory;
 
     protected $table='pengaduans';
-    protected $fillable = ['pelanggan_id','kategori_id','status','keterangan','fotoaduan','balasanadmin','tanggalselesai','fotosebelum','fotoproses','fotoselesai'];
+    protected $fillable = ['pelanggan_id','kategori_id','keterangan','fotoaduan','balasanadmin','tanggalselesai','fotosebelum','fotoproses','fotoselesai'];
 
 
     public function pelanggans()
