@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link">
+                    <a href="/pengaduanindex" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:assets1/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
+                    <a href="/pengaduanindexpetugas" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:assets1/media/svg/icons/Media/Equalizer.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg"

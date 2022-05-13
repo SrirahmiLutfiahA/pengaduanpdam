@@ -9,7 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\RiwayatController;
-
+use App\Http\Controllers\DataPengaduanController;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -117,3 +117,7 @@ Route::get('send', [PengaduanController::class, 'confirmation']);
 /** Riwayat Pengaduan */
 Route::get('riwayat', [RiwayatController::class, 'index']);
 Route::get('riwayat/detail/{id}', [RiwayatController::class, 'detail']);
+
+/**Data Pengaduan */
+Route::get('pengaduanindex', [DataPengaduanController::class, 'index'])->name('/pengaduanindex');
+Route::get('pengaduanindexpetugas', [DataPengaduanController::class, 'indexpetugas'])->name('/pengaduanindexpetugas');
