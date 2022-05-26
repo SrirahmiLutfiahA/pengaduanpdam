@@ -145,3 +145,5 @@ Route::get('/print/{tglAwal}/{tglAkhir}', [App\Http\Controllers\DataPengaduanCon
 Route::get('/laporan-pelanggan', [DataPengaduanController::class, 'laporan_pelanggan']);
 Route::get('/print-pelanggan/{tglAwal}/{tglAkhir}', [DataPengaduanController::class, 'print_pelanggan']);
 Route::get('/print-pelanggan', [DataPengaduanController::class, 'print_pelanggan']);
+
+Route::get('/forgotpw', [LoginController::class, 'forgotpw'])->name('forgotpw');
