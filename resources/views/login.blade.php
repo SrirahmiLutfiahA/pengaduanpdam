@@ -80,7 +80,7 @@
 								</div>
 								<div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
 							
-									{{-- <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Lupa Password ?</a> --}}
+									<a href="/forgotpw" id="kt_login_forgot" class="text-white font-weight-bold">Lupa Password ?</a>
 								</div>
 								<div class="form-group text-center mt-10">
 									<button type="submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Login</button>

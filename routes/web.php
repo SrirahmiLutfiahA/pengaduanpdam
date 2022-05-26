@@ -141,3 +141,6 @@ Route::post('teknisi/edit/{id_teknisi}', [EksekutorController::class, 'update'])
 /** Laporan Pengaduan */
 Route::get('/laporan', [App\Http\Controllers\DataPengaduanController::class, 'laporan'])->name('laporan');
 Route::get('/print/{tglAwal}/{tglAkhir}', [App\Http\Controllers\DataPengaduanController::class, 'print'])->name('print');
+
+
+Route::get('/forgotpw', [LoginController::class, 'forgotpw'])->name('forgotpw');
