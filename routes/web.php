@@ -142,5 +142,8 @@ Route::post('teknisi/edit/{id_teknisi}', [EksekutorController::class, 'update'])
 Route::get('/laporan', [App\Http\Controllers\DataPengaduanController::class, 'laporan'])->name('laporan');
 Route::get('/print/{tglAwal}/{tglAkhir}', [App\Http\Controllers\DataPengaduanController::class, 'print'])->name('print');
 
+Route::get('/laporan-pelanggan', [DataPengaduanController::class, 'laporan_pelanggan']);
+Route::get('/print-pelanggan/{tglAwal}/{tglAkhir}', [DataPengaduanController::class, 'print_pelanggan']);
+Route::get('/print-pelanggan', [DataPengaduanController::class, 'print_pelanggan']);
 
 Route::get('/forgotpw', [LoginController::class, 'forgotpw'])->name('forgotpw');

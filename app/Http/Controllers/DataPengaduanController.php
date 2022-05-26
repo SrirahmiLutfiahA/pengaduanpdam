@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pelanggan;
 use App\Models\pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,12 +54,45 @@ class DataPengaduanController extends Controller
 
     public function laporan()
     {
+        
+
         return view('admin/laporan/reportpengaduan');
     }
 
     public function print($tglAwal, $tglAkhir){
-        $data_aduan = Pengaduan::all()->whereBetween('created_at',[$tglAwal, $tglAkhir]);
+        // $data_aduan = Pengaduan::all()->whereBetween('created_at',[$tglAwal, $tglAkhir]);
+
+        $data_aduan = DB::table('pengaduans')
+                        ->join('pelanggans', 'pelanggans.id', '=', 'pengaduans.pelanggan_id')
+                        ->join('kategoris', 'kategoris.id', '=', 'pengaduans.kategori_id')
+                        ->select('pengaduans.*', 'pelanggans.namalengkap', 'telp', 'alamat', 'nosambungan', 'namakategori')
+                        ->whereBetween('pengaduans.created_at',[$tglAwal, $tglAkhir])
+                        ->get();
+
         return view('admin/laporan/detailreport', compact('data_aduan'));
+    }
+
+
+
+    public function laporan_pelanggan() {
+
+        return view('admin/laporan/reportpelanggan');
+    }
+
+
+    public function print_pelanggan( $tglAwal = null, $tglAkhir = null ) {
+
+        // cek opsi
+        if ( $tglAwal ) {
+
+            $data = pelanggan::all()->whereBetween('created_at',[$tglAwal, $tglAkhir]);
+        } else {
+
+            $data = pelanggan::all();
+        }
+
+
+        return view('admin/laporan/detailreportpelanggan', compact('data'));
     }
     
     // public function create()
