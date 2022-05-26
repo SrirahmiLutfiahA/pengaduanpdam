@@ -12,4 +12,7 @@ class teknisi extends Model
     protected $table='teknisi';
     protected $primaryKey = 'id_teknisi';
     protected $fillable = ['nama','status_bekerja'];
+
+    public $timestamps = false;
+
 }

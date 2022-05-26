@@ -89,18 +89,18 @@
                                         <td>{{ $row->nama }}</td>
                                         <td>{{ $row->status_bekerja}}</td>
                                          <td>
-                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit" class="btn btn-sm btn-light-warning">Sunting</a>
+                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit-{{ $row->id_teknisi }}" class="btn btn-sm btn-light-warning">Sunting</a>
                                             <a href="teknisi/delete/{{ $row->id_teknisi }}" 
                                             onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->nama }}')" 
                                             class="btn btn-sm btn-light-danger">Hapus</a>
 
                                             <!-- Modal-->
-                                            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
+                                            <div class="modal fade" id="edit-{{ $row->id_teknisi }}" data-backdrop="static" tabindex="-"
                                                 role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-sm"
                                                     role="document">
                                                     <div class="modal-content">
-                                                        <form action="tarif/edit/{{ $row->id_teknisi }}" method="post">
+                                                        <form action="{{ url('teknisi/edit/'. $row->id_teknisi ) }}" method="post">
 
 
 
