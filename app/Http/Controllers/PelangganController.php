@@ -99,4 +99,24 @@ class PelangganController extends Controller
             return redirect('pelangganindex');
         } else return abort(404);
     }
+
+    function detail($id)
+    {
+
+        $pelanggan = pelanggan::find($id);
+
+        if ($pelanggan) {
+
+            $getProfile_id = 'profile_id';
+            $getNamalengkap = 'namalengkap';
+            $getTelp        = 'telp';
+            $getAlamat      = 'alamat';
+            $getNosambungan = 'nosambungan';
+            $getBuktipembayaran = 'buktipembayaran';
+
+           
+            return redirect('pelangganindex');
+
+        } else return abort(404);
+    }
 }

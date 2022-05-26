@@ -133,7 +133,7 @@
 
 
     <!--begin::Page Scripts(used by this page)-->
-	<script src="assets1/js/pages/crud/ktdatatable/base/html-table.js"></script>
+	<script src="{{asset('assets1/js/pages/crud/ktdatatable/base/html-table.js')}}"></script>
 	<!--end::Page Scripts-->
 </body>
 <!--end::Body-->

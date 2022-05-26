@@ -49,6 +49,17 @@ class DataPengaduanController extends Controller
 
         return redirect('riwayat/detail/'. $id_pengaduan);
     }
+
+
+    public function laporan()
+    {
+        return view('admin/laporan/reportpengaduan');
+    }
+
+    public function print($tglAwal, $tglAkhir){
+        $data_aduan = Pengaduan::all()->whereBetween('created_at',[$tglAwal, $tglAkhir]);
+        return view('admin/laporan/detailreport', compact('data_aduan'));
+    }
     
     // public function create()
     // {

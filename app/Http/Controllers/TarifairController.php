@@ -22,6 +22,16 @@ class TarifairController extends Controller
     // proses tambah
     function process( Request $request ) {
 
+        $request->validate([
+
+            'kelompokpelanggan' => 'required',
+            'hargapemakaian'  => 'required',
+            'biayapemeliharaan'=> 'required',
+            'biayaadministrasi'=> 'required',
+
+
+        ]);
+
         $getKelompok = $request->input('kelompokpelanggan');
         $getPemakaian    = $request->input('hargapemakaian');
         $getPemeliharaan = $request->input('biayapemeliharaan');

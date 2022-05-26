@@ -20,7 +20,7 @@
                         <span class="navi-link p-0 pb-2">
                         </span>
                     </a>
-                    <a href="{{ url('logout') }}" class="btn btn-sm btn-light-primary font-weight-bolder py-5 px-10">Keluar Aplikasi</a>
+                    <a href="{{ url('logout') }}" class="btn btn-sm btn-light-primary font-weight-bolder py-5 px-10">Log Out</a>
                 </div>
             </div>
         </div>

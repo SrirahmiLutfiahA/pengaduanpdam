@@ -32,7 +32,12 @@
                                 <div class="form-group">
                                     <strong>Nama Kategori</strong>
                                     <br><br>
-                                    <input type="text" name="namakategori" class="form-control" placeholder="Nama Kategori">
+                                    <input type="text" name="namakategori" class="form-control @error('namakategori') is-invalid @enderror" placeholder="Nama Kategori">
+                                    @error('namakategori')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

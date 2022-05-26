@@ -21,6 +21,14 @@ class KritiksaranController extends Controller
     // proses tambah
     function process( Request $request ) {
 
+        $request->validate([
+
+            'nama' => 'required',
+            'email'  => 'required',
+            'pesan'=> 'required',
+
+        ]);
+
         $getNama = $request->input('nama');
         $getEmail = $request->input('email');
         $getPesan = $request->input('pesan');

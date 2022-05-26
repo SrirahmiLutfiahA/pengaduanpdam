@@ -73,4 +73,17 @@ class PengaduanController extends Controller
     function confirmation() {
         return view('pelanggan.pengaduan.confirmation');
     }
+
+
+
+    // public function laporan()
+    // {
+    //     return view('admin/laporan/reportpengaduan');
+    // }
+
+    // public function print($tglAwal, $tglAkhir){
+    //     $data_aduan = Pengaduan::all()->whereBetween('created_at',[$tglAwal, $tglAkhir]);
+    //     return view('admin/laporan/detailreport', compact('data_aduan'));
+    // }
+
 }

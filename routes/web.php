@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DataPengaduanController;
+use App\Http\Controllers\EksekutorController;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -97,6 +98,7 @@ Route::get('pelanggancreate', [PelangganController::class, 'create'])->name('/pe
 Route::post('pelanggancreate', [PelangganController::class, 'process'])->name('/pelanggancreate');
 Route::get('pelanggan/delete/{id}', [PelangganController::class, 'delete']);
 Route::post('pelanggan/edit/{id}', [PelangganController::class, 'update']);
+Route::get('pelanggan/detail/{id}', [PelangganController::class, 'detail']);
 
 /** Modules :: Kategori */
 Route::get('kategori', [KategoriController::class, 'index']);
@@ -127,3 +129,15 @@ Route::get('pengaduanindexpetugas', [DataPengaduanController::class, 'indexpetug
 
 // Pengubahan status pengaduan : Admin
 Route::post('konfirmasipengaduan/{id_pengaduan}', [DataPengaduanController::class, 'proses_pengubahan_pengaduan']);
+
+/** Modules :: Data Eksekutor */
+Route::get('teknisi', [EksekutorController::class, 'index']);
+Route::get('teknisicreate', [EksekutorController::class, 'create']);
+Route::post('teknisicreate', [EksekutorController::class, 'process']);
+Route::get('teknisi/delete/{id_teknisi}', [EksekutorController::class, 'delete']);
+Route::post('teknisi/edit/{id_teknisi}', [EksekutorController::class, 'update']);
+
+
+/** Laporan Pengaduan */
+Route::get('/laporan', [App\Http\Controllers\DataPengaduanController::class, 'laporan'])->name('laporan');
+Route::get('/print/{tglAwal}/{tglAkhir}', [App\Http\Controllers\DataPengaduanController::class, 'print'])->name('print');

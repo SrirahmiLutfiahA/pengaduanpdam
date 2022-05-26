@@ -19,7 +19,7 @@
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    {{-- <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data TEksekutor</h5> --}}
+                    {{-- <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Eksekutor</h5> --}}
 
                     <!--begin::Card-->
                     <div class="card card-custom">
@@ -29,7 +29,7 @@
                             </div>
                             <div class="card-toolbar">
                                 <!--begin::Button-->
-                                <a href="{{route('tarifair.create')}}" class="btn btn-primary font-weight-bolder">
+                                <a href="/teknisicreate" class="btn btn-primary font-weight-bolder">
                                     <span class="svg-icon svg-icon-md">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
                                             </g>
                                         </svg>
                                         <!--end::Svg Icon-->
-                                    </span>Tambah Data</a>
+                                    </span>Tambah Data Eksekutor</a>
                                 <!--end::Button-->
                             </div>
                         </div>
@@ -72,10 +72,97 @@
                             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                                 <thead>
                                     <tr>
-                                        <th title="Field #1">Nama Eksekutor</th>
-                                        <th title="Field #5">Aksi</th>
+                                        <th title="Field #1">Nama Teknisi</th>
+                                        <th title="Field #1">Status Bekerja</th>
+                                        <th title="Field #2">Aksi</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @php 
+                                        $nomor = 1;
+
+                                    @endphp 
+
+
+                                    @foreach ( $teknisi AS $row )
+                                    <tr>
+                                        <td>{{ $row->nama }}</td>
+                                        <td>{{ $row->status_bekerja}}</td>
+                                         <td>
+                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit" class="btn btn-sm btn-light-warning">Sunting</a>
+                                            <a href="teknisi/delete/{{ $row->id_teknisi }}" 
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->nama }}')" 
+                                            class="btn btn-sm btn-light-danger">Hapus</a>
+
+                                            <!-- Modal-->
+                                            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
+                                                role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-sm"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <form action="tarif/edit/{{ $row->id_teknisi }}" method="post">
+
+
+
+
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                <h3>Pengubahan Informasi</h3>
+                                                                <p>Sunting data {{ $row->nama }}</p>
+                                        
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Nama Lengkap</strong>
+                                                                            <input type="text" name="nama"
+                                                                                value="{{ $row->nama}}"
+                                                                                class="form-control"
+                                                                                placeholder="Nama Lengkap">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                        <div class="form-group">
+                                                                            <strong>Status Bekerja</strong>
+                                                                            <select name="status_bekerja"
+                                                                                class="form-control" id="">
+                                                                                <option value="Aktif" {{ $row->status_bekerja == "Aktif" ?
+                                                                                    'selected="selected"' : '' }}>Aktif
+                                                                                </option>
+                                                                                <option value="Nonaktif" {{ $row->status_bekerja == "Nonaktif" ? 
+                                                                                    'selected="selected"' : ''}}>Nonaktif
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button"
+                                                                    class="btn btn-light-primary btn-sm font-weight-bold"
+                                                                    data-dismiss="modal">Batal</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-warning btn-sm font-weight-bold">Simpan
+                                                                    dan Perbarui</button>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- end Modal --}}
+                                        </td>
+                                    </tr>
+
+                                    @php
+                                        $nomor++;
+                                    @endphp
+
+                                    @endforeach
+                                </tbody>
                             </table>
                             <!--end: Datatable-->
                         </div>
@@ -89,7 +176,7 @@
                             <!--begin::Info-->
                             <div class="d-flex align-items-center flex-wrap mr-2">
                                 <!--begin::Page Title-->
-                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tarif Air Minum</h5>
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data teknisi Pengaduan</h5>
                                 <!--end::Page Title-->
 
                             </div>
@@ -119,12 +206,12 @@
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="assets1/plugins/global/plugins.bundle.js"></script>
-		<script src="assets1/plugins/custom/prismjs/prismjs.bundle.js"></script>
-		<script src="assets1/js/scripts.bundle.js"></script>
+		<script src="{{ asset('assets1/plugins/global/plugins.bundle.js') }}"></script>
+		<script src="{{ asset('assets1/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
+		<script src="{{ asset('assets1/js/scripts.bundle.js') }}"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="assets1/js/pages/crud/ktdatatable/base/html-table.js"></script>
+		<script src="{{ asset('assets1/js/pages/crud/ktdatatable/base/html-table.js') }}"></script>
 		<!--end::Page Scripts-->
 </body>
 <!--end::Body-->

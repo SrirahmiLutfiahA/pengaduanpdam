@@ -39,6 +39,11 @@
                                         <option value="Niaga">Niaga</option>
                                         <option value="Industri">Industri</option>
                                     </select>
+                                    @error('kelompokpelanggan')
+										<span class="">
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
                                     <!-- <input type="text" name="kelompokpelanggan" class="form-control"
                                         placeholder="Kelompok Pelanggan"> -->
                                 </div>
@@ -48,7 +53,12 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Harga Pemakaian</strong>
-                                    <input type="number" name="hargapemakaian" class="form-control" placeholder="Harga Pemakaian">
+                                    <input type="number" name="hargapemakaian" class="form-control @error('hargapemakaian') is-invalid @enderror" placeholder="Harga Pemakaian">
+                                    @error('hargapemakaian')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -56,7 +66,12 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Biaya Pemeliharaan</strong>
-                                    <input type="number" name="biayapemeliharaan" class="form-control" placeholder="Biaya Pemeliharaan">
+                                    <input type="number" name="biayapemeliharaan" class="form-control @error('biayapemeliharaan') is-invalid @enderror" placeholder="Biaya Pemeliharaan">
+                                    @error('biayapemeliharaan')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -64,7 +79,12 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Biaya Administrasi</strong>
-                                    <input type="number" name="biayaadministrasi" class="form-control" placeholder="Biaya Administrasi">
+                                    <input type="number" name="biayaadministrasi" class="form-control @error('biayaadministrasi') is-invalid @enderror" placeholder="Biaya Administrasi">
+                                    @error('biayaadministrasi')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

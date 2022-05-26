@@ -49,42 +49,32 @@
                             </div>
                             <!--end: Search Form-->
 
-                            <!--begin: Datatable-->
-                            <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
-                                <thead>
-                                    <tr>
-                                        <th title="Field #1">Tanggal Kritik Saran</th>
-                                        <th title="Field #2">Nama Pelanggan</th>
-                                        <th title="Field #3">Email</th>
-                                        <th title="Field #5">Pesan</th>
-                                        <th title="Field #6">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $nomor = 1;
-                                    @endphp
-
-                                    @foreach ( $kritiksarans AS $row )
-                                    <tr>
-                                        <td>{{ $row->created_at}}</td>
-                                        <td>{{ $row->nama }}</td>
-                                        <td>{{ $row->email }}</td>
-                                        <td>{{ $row->pesan }}</td>
-                                        <td>
-                                        <a href="kritiksaran/delete/{{ $row->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->nama }}')" class="btn btn-sm btn-light-danger">Hapus</a>
-                                        
-                                        </td>
-                                    </tr>
-
-                                    @php
-                                    $nomor++;
-                                    @endphp
-
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            <!--end: Datatable-->
+                            <!--begin: Content-->
+                            <div class="content">
+                                <div class="card card-info card outline">
+                                    <div class="card-header">
+                                        <h3>Cetak Laporan Pengaduan</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <label for="label">Tanggal Awal</label>
+                                            <input type="date" name="tglAwal" id="tglAwal" class="form-control"/>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="label">Tanggal Akhir</label>
+                                            <input type="date" name="tglAkhir" id="tglAkhir" class="form-control"/>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <a href="" 
+                                            onclick="this.href = '/print/'+ document.getElementById('tglAwal').value + '/' + document.getElementById('tglAkhir').value" 
+                                            target="_blank" class="btn btn-primary col-md-12">Cetak Laporan
+                                                <i class="fas fa-print"></i>    
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Content-->
                         </div>
                     </div>
                     <!--end::Card-->
@@ -96,7 +86,7 @@
                             <!--begin::Info-->
                             <div class="d-flex align-items-center flex-wrap mr-2">
                                 <!--begin::Page Title-->
-                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Kritik dan Saran</h5>
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Laporan Pengaduan</h5>
                                 <!--end::Page Title-->
 
                             </div>

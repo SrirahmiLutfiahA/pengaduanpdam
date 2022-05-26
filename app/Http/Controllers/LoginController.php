@@ -19,6 +19,14 @@ class LoginController extends Controller
 
     function proses( Request $request ) {
 
+
+        //validasi
+        $request->validate([
+
+            'email' => 'required',
+            'password'  => 'required',
+        ]);
+
         /**
          * TODO List
          * 1. Ambil nilai input email dan password

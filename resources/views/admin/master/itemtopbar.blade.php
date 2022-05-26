@@ -20,7 +20,7 @@
                         <span class="navi-link p-0 pb-2">
                         </span>
                     </a>
-                    <a href="{{ url('logout') }}" class="btn btn-sm btn-light-primary font-weight-bolder py-5 px-10">Keluar Aplikasi</a>
+                    <a href="{{ url('logout') }}" class="btn btn-sm btn-light-primary font-weight-bolder py-5 px-10">Keluar</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
             {{-- <div class="d-flex align-items-center bg-light-danger rounded p-5 gutter-b">
                 <span class="svg-icon svg-icon-danger mr-5">
                     <span class="svg-icon svg-icon-lg">
-                        <!--begin::Svg Icon | path:assets1/media/svg/icons/Communication/Group-chat.svg-->
+                        <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Communication/Group-chat.svg')}}-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets1/media/stock-600x400/img-1.jpg" title="" alt="" />
+                    <img src="{{asset('assets1/media/stock-600x400/img-1.jpg')}}" title="" alt="" />
                 </a>
             </div>
             <!--end::Item-->
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets1/media/stock-600x400/img-2.jpg" title="" alt="" />
+                    <img src="{{asset('assets1/media/stock-600x400/img-2.jpg')}}" title="" alt="" />
                 </a>
             </div>
             <!--end::Item-->
@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets1/media/stock-600x400/img-3.jpg" title="" alt="" />
+                    <img src="{{asset('assets1/media/stock-600x400/img-3.jpg')}}" title="" alt="" />
                 </a>
             </div>
             <!--end::Item-->
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets1/media/stock-600x400/img-4.jpg" title="" alt="" />
+                    <img src="{{asset('assets1/media/stock-600x400/img-4.jpg')}}" title="" alt="" />
                 </a>
             </div>
             <!--end::Item-->
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets1/media/stock-600x400/img-8.jpg" title="" alt="" />
+                    <img src="{{asset('assets1/media/stock-600x400/img-8.jpg')}}" title="" alt="" />
                 </a>
             </div>
             <!--end::Item-->
@@ -254,7 +254,7 @@
                     <div class="d-flex align-items-center bg-light-warning rounded p-5 mb-5">
                         <span class="svg-icon svg-icon-warning mr-5">
                             <span class="svg-icon svg-icon-lg">
-                                <!--begin::Svg Icon | path:assets1/media/svg/icons/Home/Library.svg-->
+                                <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Home/Library.svg')}}-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -283,7 +283,7 @@
                     <div class="d-flex align-items-center bg-light-success rounded p-5 mb-5">
                         <span class="svg-icon svg-icon-success mr-5">
                             <span class="svg-icon svg-icon-lg">
-                                <!--begin::Svg Icon | path:assets1/media/svg/icons/Communication/Write.svg-->
+                                <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Communication/Write.svg')}}-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -313,7 +313,7 @@
                     <div class="d-flex align-items-center bg-light-danger rounded p-5 mb-5">
                         <span class="svg-icon svg-icon-danger mr-5">
                             <span class="svg-icon svg-icon-lg">
-                                <!--begin::Svg Icon | path:assets1/media/svg/icons/Communication/Group-chat.svg-->
+                                <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Communication/Group-chat.svg')}}-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -342,7 +342,7 @@
                     <div class="d-flex align-items-center bg-light-info rounded p-5">
                         <span class="svg-icon svg-icon-info mr-5">
                             <span class="svg-icon svg-icon-lg">
-                                <!--begin::Svg Icon | path:assets1/media/svg/icons/General/Attachment2.svg-->
+                                <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/General/Attachment2.svg')}}-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -427,7 +427,7 @@
                             <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="svg-icon svg-icon-lg">
-                                    <!--begin::Svg Icon | path:assets1/media/svg/icons/Communication/Add-user.svg-->
+                                    <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Communication/Add-user.svg')}}-->
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                         viewBox="0 0 24 24" version="1.1">
@@ -487,7 +487,7 @@
                             <div class="d-flex flex-column mb-5 align-items-start">
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-40 mr-3">
-                                        <img alt="Pic" src="assets1/media/users/300_12.jpg" />
+                                        <img alt="Pic" src="{{asset('assets1/media/users/300_12.jpg')}}" />
                                     </div>
                                     <div>
                                         <a href="#"
@@ -538,7 +538,7 @@
 <!--begin::Scrolltop-->
 <div id="kt_scrolltop" class="scrolltop">
     <span class="svg-icon">
-        <!--begin::Svg Icon | path:assets1/media/svg/icons/Navigation/Up-2.svg-->
+        <!--begin::Svg Icon | path:{{asset('assets1/media/svg/icons/Navigation/Up-2.svg')}}-->
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
             height="24px" viewBox="0 0 24 24" version="1.1">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -564,13 +564,13 @@
 </script>
 <!--end::Global Config-->
 <!--begin::Global Theme Bundle(used by all pages)-->
-<script src="assets1/plugins/global/plugins.bundle.js"></script>
-<script src="assets1/plugins/custom/prismjs/prismjs.bundle.js"></script>
-<script src="assets1/js/scripts.bundle.js"></script>
+<script src="{{asset('assets1/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{asset('assets1/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
+<script src="{{asset('assets1/js/scripts.bundle.js')}}"></script>
 <!--end::Global Theme Bundle-->
 <!--begin::Page Vendors(used by this page)-->
-<script src="assets1/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="{{asset('assets1/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
-<script src="assets1/js/pages/widgets.js"></script>
+<script src="{{asset('assets1/js/pages/widgets.js')}}"></script>
 <!--end::Page Scripts-->

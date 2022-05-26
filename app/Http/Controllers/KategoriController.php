@@ -24,6 +24,13 @@ class KategoriController extends Controller
     // proses tambah
     function process( Request $request ) {
 
+        //validasi
+        $request->validate([
+
+            'namakategori' => 'required',
+
+        ]);
+
         $getNamaKategori = $request->input('namakategori');
        
 

@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>Sistem Informasi Pengaduan PDAM</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets1/media/logos/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{{asset('assets1/media/logos/favicon.ico')}}" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -102,12 +102,22 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" name="nama" type="text" placeholder="Masukkan nama Anda..." data-sb-validations="required" />
                                 <label for="name">Nama Lengkap</label>
+                                @error('nama')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">Alamat Email</label>
+                                @error('email')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
@@ -115,6 +125,11 @@
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" name="pesan" type="text" placeholder="Masukkan Kritik dan Saran..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Isi Kritik dan Saran</label>
+                                @error('pesan')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                             <!-- Submit success message-->

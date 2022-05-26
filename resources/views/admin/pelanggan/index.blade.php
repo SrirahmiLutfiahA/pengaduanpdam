@@ -27,7 +27,7 @@
                             <div class="card-title">
 
                             </div>
-                            <div class="card-toolbar">
+                    {{--       <div class="card-toolbar">
                                 <!--begin::Button-->
                                 <a href="/pelanggancreate" class="btn btn-primary font-weight-bolder">
                                     <span class="svg-icon svg-icon-md">
@@ -45,8 +45,8 @@
                                         </svg>
                                         <!--end::Svg Icon-->
                                     </span>Tambah Data Pelanggan</a>
-                                <!--end::Button-->
-                            </div>
+                                <!--end::Button--> 
+                            </div> --}}
                         </div>
                         <div class="card-body">
                             <!--begin::Search Form-->
@@ -254,12 +254,12 @@
     </script>
     <!--end::Global Config-->
     <!--begin::Global Theme Bundle(used by all pages)-->
-    <script src="assets1/plugins/global/plugins.bundle.js"></script>
-    <script src="assets1/plugins/custom/prismjs/prismjs.bundle.js"></script>
-    <script src="assets1/js/scripts.bundle.js"></script>
+    <script src="{{asset('assets1/plugins/global/plugins.bundle.js')}}"></script>
+    <script src="{{asset('assets1/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
+    <script src="{{asset('assets1/js/scripts.bundle.js')}}"></script>
     <!--end::Global Theme Bundle-->
     <!--begin::Page Scripts(used by this page)-->
-    <script src="assets1/js/pages/crud/ktdatatable/base/html-table.js"></script>
+    <script src="{{asset('assets1/js/pages/crud/ktdatatable/base/html-table.js')}}"></script>
     <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
