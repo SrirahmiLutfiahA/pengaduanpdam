@@ -71,7 +71,8 @@
             <font size="3" face="times new roman">1 : Ditolak</font><br>
             <font size="3" face="times new roman">2 : Diajukan ke petugas</font><br>
             <font size="3" face="times new roman">3 : Perbaikan</font><br>
-            <font size="3" face="times new roman">4 : Pengaduan selesai</font><br>
+            <font size="3" face="times new roman">4 : Selesai Perbaikan</font><br>
+            <font size="3" face="times new roman">5 : Pengaduan Selesai</font><br>
         
     </div>
 
