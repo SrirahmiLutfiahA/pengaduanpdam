@@ -15,9 +15,45 @@ class DataPengaduanController extends Controller
         return view('admin.pengaduan.index')->with('pengaduans', $pengaduans);
     }
 
+    public function indexpengaduanbaru()
+    {
+        $pengaduans = pengaduan::where('status','=','0')->get();
+        return view('admin.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+    public function indexpengaduanditolak()
+    {
+        $pengaduans = pengaduan::where('status','=','1')->get();
+        return view('admin.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+    public function indexpengaduanselesaiperbaikan()
+    {
+        $pengaduans = pengaduan::where('status','=','4')->get();
+        return view('admin.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+    public function indexpengaduanselesai()
+    {
+        $pengaduans = pengaduan::where('status','=','5')->get();
+        return view('admin.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+//untuk petugasnya
     public function indexpetugas()
     {
-        $pengaduans = pengaduan::all();
+        $pengaduans = pengaduan::where('status','=','2')->get();
+        return view('trandis.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+    public function indexpetugasperbaikan()
+    {
+        $pengaduans = pengaduan::where('status','=','3')->get();
+        return view('trandis.pengaduan.index')->with('pengaduans', $pengaduans);
+    }
+
+    public function indexpetugasselesaiperbaikan()
+    {
+        $pengaduans = pengaduan::where('status','=','4')->get();
         return view('trandis.pengaduan.index')->with('pengaduans', $pengaduans);
     }
 

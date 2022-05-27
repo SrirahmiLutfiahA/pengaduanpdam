@@ -278,12 +278,6 @@
                                                         </p>
 
 
-
-
-
-
-
-
                                                         @if ( session('level') == "admin" )
 
                                                         {{-- Aktivitas Untuk Level : Admin --}}

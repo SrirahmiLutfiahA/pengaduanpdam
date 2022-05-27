@@ -97,15 +97,15 @@
                                             <img src="{{asset('img/'.$row->buktipembayaran)}}" width="96px">
                                         </td>
                                         <td>
-                                            <a href="javascript:;" data-toggle="modal" data-target="#edit"
-                                                class="btn btn-sm btn-light-warning">Sunting</a>
+                                        <!--    <a href="javascript:;" data-toggle="modal" data-target="#edit"
+                                                class="btn btn-sm btn-light-warning">Sunting</a> -->
                                             <a href="pelanggan/delete/{{ $row->id }}"
                                                 onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->profile_id }}')"
                                                 class="btn btn-sm btn-light-danger">Hapus</a>
 
 
                                             <!-- Modal-->
-                                            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
+                                      <!--      <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
                                                 role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-sm"
                                                     role="document">
@@ -194,10 +194,10 @@
                                                                     dan Perbarui</button>
                                                             </div>
 
-                                                        </form>
+                                                        </form> 
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </td>
                                     </tr>
 

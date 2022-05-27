@@ -29,31 +29,12 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <!--begin::Search Form-->
-                            <div class="mb-7">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-9 col-xl-8">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-4 my-2 my-md-0">
-                                                <div class="input-icon">
-                                                    <input type="text" class="form-control" placeholder="Search..."
-                                                        id="kt_datatable_search_query" />
-                                                    <span>
-                                                        <i class="flaticon2-search-1 text-muted"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end: Search Form-->
 
                             <!--begin: Content-->
                             <div class="content">
                                 <div class="card card-info card outline">
                                     <div class="card-header">
-                                        <h3>Cetak Laporan Pelanggan</h3>
+                                        <h3>Cetak Laporan Data Pelanggan</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="input-group mb-3">

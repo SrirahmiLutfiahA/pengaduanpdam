@@ -122,7 +122,15 @@ Route::get('riwayat/detail/{id}', [RiwayatController::class, 'detail']);
 
 /**Data Pengaduan */
 Route::get('pengaduanindex', [DataPengaduanController::class, 'index'])->name('/pengaduanindex');
+Route::get('pengaduanindexbaru', [DataPengaduanController::class, 'indexpengaduanbaru'])->name('/pengaduanindexbaru');
+Route::get('pengaduanindexditolak', [DataPengaduanController::class, 'indexpengaduanditolak'])->name('/pengaduanindexditolak');
+Route::get('pengaduanindexselesaiperbaikan', [DataPengaduanController::class, 'indexpengaduanselesaiperbaikan'])->name('/pengaduanindexselesaiperbaikan');
+Route::get('pengaduanindexselesai', [DataPengaduanController::class, 'indexpengaduanselesai'])->name('/pengaduanindexselesai');
+
+//petugas
 Route::get('pengaduanindexpetugas', [DataPengaduanController::class, 'indexpetugas'])->name('/pengaduanindexpetugas');
+Route::get('pengaduanindexperbaikan', [DataPengaduanController::class, 'indexpetugasperbaikan'])->name('/pengaduanindexperbaikan');
+Route::get('pengaduanpetugasselesaiperbaikan', [DataPengaduanController::class, 'indexpetugasselesaiperbaikan'])->name('/pengaduanpetugasselesaiperbaikan');
 
 
 

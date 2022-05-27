@@ -33,7 +33,7 @@
 
         <h3>
             <center> <strong>
-                    <font size="5" face="times new roman">LAPORAN PELANGGAN</font>
+                    <font size="5" face="times new roman">LAPORAN DATA PELANGGAN</font>
                 </strong><br>
         </h3><br>
         <table class="table table-bordered" align="center" rules="all">
@@ -60,6 +60,8 @@
             @endforeach
 
         </table>
+
+
     </div>
 
     <script type="text/javascript">

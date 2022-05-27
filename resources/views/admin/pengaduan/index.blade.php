@@ -57,7 +57,8 @@
                                     <tr>
                                         <th title="Field #1">Tanggal Aduan</th>
                                         <th title="Field #2">Nama Pelanggan</th>
-                                        <th title="Field #4">Keterangan Aduan</th>
+                                        <th title="Field #4">Keterangan</th>
+                                      
                                         <th title="Field #6">Aksi</th>
                                     </tr>
                                 </thead>
@@ -73,6 +74,7 @@
                                         <td>{{ $row->created_at }}</td>
                                         <td>{{ $row->pelanggan_id }}</td>
                                         <td>{{ $row->keterangan}}</td>
+                                        
                                         <td>
                                             <a href="{{ url('riwayat/detail/'. $row->id) }}" class="btn btn-sm btn-light-warning">Lihat Detail dan Eksekusi</a>
                         

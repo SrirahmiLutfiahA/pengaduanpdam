@@ -48,20 +48,20 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!--begin::Aside-->
 				<div class="login-aside d-flex flex-column flex-row-auto">
 					<!--begin::Aside Top-->
-					<div class="d-flex flex-column-auto flex-column pt-lg-40 pt-5">
+					<div class="d-flex flex-column-auto flex-column pt-lg-10 pt-5">
 						<!--begin::Aside Header-->
-						<a href="#" class="login-logo text-center pt-lg-25 pb-10">
-							<img src="{{asset('assets1/media/logos/logo-pdam.png')}}" class="max-h-70px" alt="" />
+						<a href="#" class="login-logo text-center pt-lg-6 pb-80">
+							<img src="{{asset('assets1/media/logos/logo-pdam.png')}}" class="max-h-20px" alt="" />
 						</a>
 						<!--end::Aside Header-->
 						<!--begin::Aside Title-->
 						<h3 class="font-weight-bolder text-center font-size-h4 text-dark-50 line-height-xl">PDAM Tirta Lestari
 						<br />Kabupaten Tuban</h3>
 						<!--end::Aside Title-->
-					</div>
+					</div> 
 					<!--end::Aside Top-->
 					<!--begin::Aside Bottom-->
-					<div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-x-center" style="background-position-y: calc(100% + 5rem); background-image: url({{asset('assets1/media/svg/illustrations/login-visual-5.svg')}})"></div>
+					<div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-x-center" style="background-position-y: calc(200% + 5rem); background-image: url({{asset('assets1/media/svg/illustrations/login-visual-5.svg')}})"></div>
 					<!--end::Aside Bottom-->
 				</div>
 				<!--begin::Aside-->
@@ -88,7 +88,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<!--begin::Form group-->
 								<div class="form-group d-flex flex-wrap">
 									<button type="submit" id="kt_login_forgot_form_submit_button" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Kirim</button>
-									<a href="custom/pages/login/login-3/signin.html" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Batal</a>
+									<a href="/login" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Batal</a>
 								</div>
 								<!--end::Form group-->
 							</form>

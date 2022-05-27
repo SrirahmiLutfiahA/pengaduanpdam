@@ -93,20 +93,20 @@
                                         <td>{{ number_format($row->biayapemeliharaan, 3) }}</td>
                                         <td>{{ number_format($row->biayaadministrasi, 3) }}</td>
                                         <td>
-                                            <a href="javascript:;" data-toggle="modal" data-target="#edit"
-                                                class="btn btn-sm btn-light-warning">Sunting</a>
+                                            <a href="javascript:;"  data-toggle="modal" data-target="#edit-{{ $row->id }}" class="btn btn-sm btn-light-warning">Sunting</a>
+                                            
                                             <a href="tarif/delete/{{ $row->id }}"
                                                 onclick="return confirm('Apakah anda yakin ingin menghapus {{ $row->kelompokpelanggan }}')"
                                                 class="btn btn-sm btn-light-danger">Hapus</a>
 
 
                                             <!-- Modal-->
-                                            <div class="modal fade" id="edit" data-backdrop="static" tabindex="-"
+                                            <div class="modal fade" id="edit-{{ $row->id }}" data-backdrop="static" tabindex="-"
                                                 role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-sm"
                                                     role="document">
                                                     <div class="modal-content">
-                                                        <form action="tarif/edit/{{ $row->id }}" method="post">
+                                                        <form action="{{ url('tarif/edit/'. $row->id ) }}" method="post">
                                                             @csrf
                                                             <div class="modal-body">
                                                                 <h3>Pengubahan Informasi</h3>

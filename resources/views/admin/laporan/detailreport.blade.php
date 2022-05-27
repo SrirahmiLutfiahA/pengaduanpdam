@@ -14,7 +14,7 @@
             <tr>
                 <td>
                     <center>
-                        <img src="{{'/img/logo.png'}}" style="width:40%;">
+                        <img src="{{asset('assets/img/logo-pdam-judul.png')}}" style="width:100%;">
                 </td>
                 <td>
                     <center>
@@ -43,8 +43,8 @@
                 <th><b>No Pelanggan</b></th>
                 <th><b>Alamat</b></th>
                 <th><b>Kategori</b></th>
+                <th><b>Keterangan Aduan</b></th>
                 <th><b>Tanggal Aduan</b></th>
-                <th><b>Tanggal Eksekusi</b></th>
                 <th><b>Status</b></th>
             </tr>
             @php $id=0; @endphp
@@ -53,17 +53,26 @@
             @php $id++; @endphp
             <tr>
                 <td>{{$id}}</td>
-                <td>{{ $value->nama }}</td>
-                <td>{{ $value->nopelanggan }}</td>
+                <td>{{ $value->namalengkap }}</td>
+                <td>{{ $value->nosambungan }}</td>
                 <td>{{ $value->alamat }}</td>
-                <td>{{ $value->kategori }}</td>
+                <td>{{ $value->namakategori }}</td>
+                <td>{{ $value->keterangan }}</td>
                 <td>{{$value->created_at}}</td>
-                <td>{{$value->tgleksekusi}}</td>
                 <td>{{ $value->status }}</td>
             </tr>
             @endforeach
 
         </table>
+        <strong>
+            <font size="4" face="times new roman">Keterangan Status</font><br>
+        </strong>
+            <font size="3" face="times new roman">0 : Menunggu verifikasi admin</font><br>
+            <font size="3" face="times new roman">1 : Ditolak</font><br>
+            <font size="3" face="times new roman">2 : Diajukan ke petugas</font><br>
+            <font size="3" face="times new roman">3 : Perbaikan</font><br>
+            <font size="3" face="times new roman">4 : Pengaduan selesai</font><br>
+        
     </div>
 
     <script type="text/javascript">
