@@ -54,7 +54,7 @@
                                 <div class="card card-custom card-stretch gutter-b">
                                     <!--begin::Body-->
                                     <div class="card-body pt-4">
-                                    						<!--begin::Entry-->
+                       <!--begin::Entry-->
 						<div class="d-flex flex-column-fluid">
 							<!--begin::Container-->
 							<div class="container">
@@ -64,6 +64,7 @@
 									<div class="col-lg-6 col-xxl-4">
 										<!--begin::Mixed Widget 1-->
 										<div class="card card-custom bg-gray-100 card-stretch gutter-b">
+											
 											<!--begin::Body-->
 											<div class="card-body p-0 position-relative overflow-hidden">
 												<!--begin::Chart-->
@@ -75,7 +76,7 @@
 													<div class="row m-0">
 														<div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
 															<span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-																<!--begin::Svg Icon | path:{{ asset('assets1/media/svg/icons/Media/Equalizer.svg ')}}-->
+																<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																		<rect x="0" y="0" width="24" height="24" />
@@ -87,12 +88,12 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
-															<a href="#" class="text-warning font-weight-bold font-size-h6">Data Pengaduan</a>
+															<h3>100</h3>
+															<a class="text-warning font-weight-bold font-size-h6">Data Pengaduan</a>
 														</div>
 														<div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
 															<span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
-																<!--begin::Svg Icon | path:{{ asset('assets1/media/svg/icons/Communication/Add-user.svg ')}}-->
+																<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																		<polygon points="0 0 24 0 24 24 0 24" />
@@ -102,8 +103,8 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
-															<a href="#" class="text-primary font-weight-bold font-size-h6 mt-2">Data Pelanggan</a>
+															<h3>100</h3>
+															<a class="text-primary font-weight-bold font-size-h6 mt-2">Data Pelanggan</a>
 														</div>
 													</div>
 													<!--end::Row-->
@@ -111,7 +112,7 @@
 													<div class="row m-0">
 														<div class="col bg-light-danger px-6 py-8 rounded-xl mr-7">
 															<span class="svg-icon svg-icon-3x svg-icon-danger d-block my-2">
-																<!--begin::Svg Icon | path:{{ asset('assets1/media/svg/icons/Design/Layers.svg ')}}-->
+																<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																		<polygon points="0 0 24 0 24 24 0 24" />
@@ -121,12 +122,12 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
-															<a href="#" class="text-danger font-weight-bold font-size-h6 mt-2">Data Kritik Saran</a>
+															<h3>100</h3>
+															<a  class="text-danger font-weight-bold font-size-h6 mt-2">Data Kritik dan Saran</a>
 														</div>
 														<div class="col bg-light-success px-6 py-8 rounded-xl">
 															<span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
-																<!--begin::Svg Icon | path:{{ asset('assets1/media/svg/icons/Communication/Urgent-mail.svg ')}}-->
+																<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Urgent-mail.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																		<rect x="0" y="0" width="24" height="24" />
@@ -136,25 +137,13 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
-															<a href="#" class="text-success font-weight-bold font-size-h6 mt-2">Data Tarif Air</a>
+															<h3>100</h3>
+															<a class="text-success font-weight-bold font-size-h6 mt-2">Data Tarif Air</a>
 														</div>
 													</div>
 													<!--end::Row-->
 												</div>
 												<!--end::Stats-->
-                                        <!--begin::Card-->
-										<div class="card card-custom gutter-b">
-											<div class="card-header">
-												<div class="card-title">
-													<h3 class="card-label">Pie Chart 1</h3>
-												</div>
-											</div>
-											<div class="card-body">
-												<div id="kt_flotcharts_8" style="height: 300px;"></div>
-											</div>
-										</div>
-										<!--end::Card-->
 											</div>
 											<!--end::Body-->
 										</div>
@@ -163,22 +152,43 @@
 									<div class="col-lg-6 col-xxl-4">
 										<!--begin::List Widget 9-->
 										<div class="card card-custom card-stretch gutter-b">
-										<!--begin::Body-->
-											<div class="card-body pt-4">
-					
+												<!--begin::Card-->
+										<div class="card card-custom gutter-b">
+											<div class="card-header">
+												<div class="card-title">
+													<h3 class="card-label">Grafik Pengaduan</h3>
+												</div>
 											</div>
+											<div class="card-body">
+												<div id="kt_flotcharts_8" style="height: 300px;"></div>
+											</div>
+										</div>
+										<!--end::Card-->
+										</div>
+												<!--end::Timeline-->
+										</div>
 											<!--end: Card Body-->
 										</div>
 										<!--end: List Widget 9-->
+
 									</div>
-									<div class="col-lg-6 col-xxl-4">
-									</div>
-                                   
-                        </div>
-                        <!--end::Container-->
-                    </div>
-                    <!--end::Entry-->
-                    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+									
+                </div>
+				<!--begin::Card-->
+				<div class="card card-custom gutter-b">
+					<div class="card-header">
+						<div class="card-title">
+							<h3 class="card-label">Interactive Chart</h3>
+						</div>
+					</div>
+					<div class="card-body">
+						<div id="kt_flotcharts_6" style="height: 300px;"></div>
+					</div>
+				</div>
+				<!--end::Card-->
+                <!--end::Content-->
+                <!--begin::Footer-->
+				<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
@@ -193,9 +203,6 @@
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ asset('assets1/js/pages/features/charts/flotcharts.js ')}}"></script>
 		<!--end::Page Scripts-->
-                </div>
-                <!--end::Content-->
-                <!--begin::Footer-->
                 @include('admin.master.footer')
                 <!--end::Footer-->
             </div>
