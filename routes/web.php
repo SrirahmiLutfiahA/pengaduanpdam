@@ -155,3 +155,4 @@ Route::get('/print-pelanggan/{tglAwal}/{tglAkhir}', [DataPengaduanController::cl
 Route::get('/print-pelanggan', [DataPengaduanController::class, 'print_pelanggan']);
 
 Route::get('/forgotpw', [LoginController::class, 'forgotpw'])->name('forgotpw');
+Route::get('/resetpw', [LoginController::class, 'resetpw'])->name('resetpw');

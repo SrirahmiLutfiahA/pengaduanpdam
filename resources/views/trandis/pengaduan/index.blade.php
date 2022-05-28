@@ -66,7 +66,7 @@
                                     @foreach ( $pengaduans AS $row )
                                     <tr>
                                         <td>{{ $row->created_at }}</td>
-                                        <td>{{ $row->pelanggan_id }}</td>
+                                        <td>{{ $row->namalengkap }}</td>
                                         <td>{{ $row->keterangan}}</td>
                                         <td>
                                             <a href="{{ url('riwayat/detail/'. $row->id) }}" class="btn btn-sm btn-light-warning">Lihat Detail dan Eksekusi</a>

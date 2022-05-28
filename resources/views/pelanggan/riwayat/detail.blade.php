@@ -345,6 +345,12 @@
                                                             </div>
                                                         </div>
                                                         {{-- End : Activity for userlevel admin --}}
+                                                       
+                                                        @elseif ( session('level') == "petugas" )
+                                                            {{-- Aktivitas Untuk Level : Petugas --}}
+
+                                                            {{-- End : Activity for userlevel Petugas --}}
+
                                                         @endif
 
 

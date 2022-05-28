@@ -188,4 +188,8 @@ class LoginController extends Controller
 
         return view('forgotpw');
     }
+    public function resetpw() {
+
+        return view('resetpw');
+    }
 }

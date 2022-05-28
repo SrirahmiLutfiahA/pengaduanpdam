@@ -554,7 +554,6 @@
 </div>
 <!--end::Scrolltop-->
 
-
 <script>
     var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
 </script>
@@ -570,7 +569,7 @@
 <!--end::Global Theme Bundle-->
 <!--begin::Page Vendors(used by this page)-->
 <script src="{{asset('assets1/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <!--end::Page Vendors-->
-<!--begin::Page Scripts(used by this page)-->
-<script src="{{asset('assets1/js/pages/widgets.js')}}"></script>
 <!--end::Page Scripts-->

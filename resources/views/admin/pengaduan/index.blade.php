@@ -72,7 +72,7 @@
                                     @foreach ( $pengaduans AS $row )
                                     <tr>
                                         <td>{{ $row->created_at }}</td>
-                                        <td>{{ $row->pelanggan_id }}</td>
+                                        <td>{{ $row->namalengkap }}</td>
                                         <td>{{ $row->keterangan}}</td>
                                         
                                         <td>

@@ -87,7 +87,7 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
+                                                            <h1> {{ $count_aduan }} </h1>
 															<a class="text-warning font-weight-bold font-size-h6">Total Data Pengaduan</a>
 														</div>
 														<div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
@@ -102,7 +102,7 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
+                                                            <h1> {{ $count_diajukan }} </h1>
 															<a class="text-primary font-weight-bold font-size-h6 mt-2">Pengaduan Diajukan</a>
 														</div>
 													</div>
@@ -121,7 +121,7 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
+                                                            <h1> {{ $count_perbaikan}} </h1>
 															<a  class="text-danger font-weight-bold font-size-h6 mt-2">Pengaduan Perbaikan</a>
 														</div>
 														<div class="col bg-light-success px-6 py-8 rounded-xl">
@@ -136,7 +136,7 @@
 																</svg>
 																<!--end::Svg Icon-->
 															</span>
-                                                            <h1> ..300... </h1>
+                                                            <h1> {{ $count_selesaiperbaikan }} </h1>
 															<a  class="text-success font-weight-bold font-size-h6 mt-2">Pengaduan Selesai Perbaikan</a>
 														</div>
 													</div>

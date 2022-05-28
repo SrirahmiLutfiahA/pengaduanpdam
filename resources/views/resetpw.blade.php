@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title>Lupa Password - PDAM Tirta Lestari</title>
+		<title>Reset Password - PDAM Tirta Lestari</title>
 		<meta name="description" content="Forgot password page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -76,19 +64,20 @@ License: You must have a valid license purchased only from themeforest(the above
 							<form class="form" id="kt_login_forgot_form" action="">
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Anda Lupa Password ?</h3>
-									<p class="text-muted font-weight-bold font-size-h4">Masukkan Email Anda untuk Mereset Password</p>
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Reset Password </h3>
+									<p class="text-muted font-weight-bold font-size-h4">Masukkan Password Baru Anda</p>
 								</div>
 								<!--end::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" type="email" placeholder="Email" name="email" autocomplete="off" />
+									<input class="form-control h-auto py-5 px-6 border-0 rounded-lg font-size-h6" type="password" placeholder="Masukkan Password Baru" name="password" autocomplete="off" /><br>
+									<input class="form-control h-auto py-5 px-6 border-0 rounded-lg font-size-h6" type="password" placeholder="Konfirmasi Password Baru" name="password" autocomplete="off" /><br>
+									<input type="checkbox" class="form-checkbox"> Show password
 								</div>
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group d-flex flex-wrap">
 									<button type="submit" id="kt_login_forgot_form_submit_button" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Kirim</button>
-									<a href="/login" id="kt_login_forgot_cancel" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Batal</a>
 								</div>
 								<!--end::Form group-->
 							</form>
@@ -114,6 +103,18 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{asset('assets1/js/pages/custom/login/login-3.js')}}"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){		
+				$('.form-checkbox').click(function(){
+					if($(this).is(':checked')){
+						$('.form-control').attr('type','text');
+					}else{
+						$('.form-control').attr('type','password');
+					}
+				});
+			});
+		</script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
