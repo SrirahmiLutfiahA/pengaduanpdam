@@ -73,8 +73,7 @@ Route::get('/make-password', function(){
 Route::get('dashboard', [DashboardController::class, 'index']);
 Route::get('dashboardpelanggan', [DashboardController::class, 'index2']);
 Route::get('dashboardpetugas', [DashboardController::class, 'index3']);
-
-
+Route::get('coba', [DashboardController::class, 'coba']);
 
 /** Modules :: Tarif Air */
 Route::get('tarif', [TarifairController::class, 'index']);

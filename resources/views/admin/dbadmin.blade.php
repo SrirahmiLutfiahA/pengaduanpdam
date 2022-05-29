@@ -255,11 +255,11 @@
 				<div class="card card-custom gutter-b">
 					<div class="card-header">
 						<div class="card-title">
-							<h3 class="card-label">Grafik Pengaduan Per Bulan</h3>
+							<h3 class="card-label">Grafik Pengaduan Per Bulan Tahun 2022</h3>
 						</div>
 					</div>
 					<div class="card-body">
-						<div id="kt_flotcharts_6" style="height: 300px;"></div>
+						<canvas id="mataChart" class="chartjs" width="undefined" height="undefined"></canvas>
 					</div>
 				</div>
 				<!--end::Card-->
@@ -279,6 +279,29 @@
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ asset('assets1/js/pages/features/charts/flotcharts.js ')}}"></script>
+		<script src="/Chart.js"></script>
+    <script type="text/javascript">
+        var ctx = document.getElementById("mataChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?php echo json_encode($label); ?>,
+            datasets: [{
+            label: 'Statistik Pengaduan',
+            backgroundColor: '#ADD8E6',
+            borderColor: '#93C3D2',
+            data: <?php echo json_encode($jumlah_user); ?>
+            }],
+            options: {
+        animation: {
+            onProgress: function(animation) {
+                progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+            }
+          }
+        }
+       },
+     });
+    </script>
 		<!--end::Page Scripts-->
                 @include('admin.master.footer')
                 <!--end::Footer-->

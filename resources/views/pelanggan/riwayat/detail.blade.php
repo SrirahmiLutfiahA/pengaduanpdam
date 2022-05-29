@@ -349,6 +349,75 @@
                                                         @elseif ( session('level') == "petugas" )
                                                             {{-- Aktivitas Untuk Level : Petugas --}}
 
+                                                            @if ( empty($pengaduan->laporan_diperbaiki) ) 
+
+                                                                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-sm btn-warning">Tambahkan Perbaikan</button>
+                                                            
+                                                            @else 
+                                                                <button class="btn btn-sm btn-warning disabled">Tambahkan Perbaikan</button>
+
+                                                            @endif
+                                                        
+                                                        <!-- Modal-->
+                                                        <div class="modal fade" id="exampleModalCenter" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    
+
+                                                                    <form action="{{ url('konfirmasipengaduan/'. $pengaduan->id) }}" method="POST">
+
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <i aria-hidden="true" class="ki ki-close"></i>
+                                                                        </button>
+
+                                                                        <h3>Verifikasi Perbaikan</h3>
+                                                                        <p> Konfirmasi pengaduan oleh petugas </p>
+
+
+                                                                        <div class="form-group">
+                                                                            <div class="radio-inline">
+                                                                                <label class="radio">
+                                                                                    <input type="radio" name="status_admin" value="1"/>
+                                                                                    <span></span>
+                                                                                    Perbaikan
+                                                                                </label>
+                                                                                <label class="radio">
+                                                                                    <input type="radio" name="status_admin" value="2"/>
+                                                                                    <span></span>
+                                                                                    Selesai Perbaikan
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        
+                                                                        <div class="form-group" id="form-penolakan-admin" style="display: none">
+                                                                            <label for="">Upload Foto Sebelum</label>
+                                                                            <textarea name="keterangan" class="form-control" id="" placeholder="Masukkan alasan ..."></textarea>
+                                                                            <small>Bukti Foto Sebelum Perbaikan</small>
+                                                                        </div>
+                                                                        <div class="form-group" id="form-penolakan-admin" style="display: none">
+                                                                            <label for="">Upload Foto Sedang Perbaikan</label>
+                                                                            <textarea name="keterangan" class="form-control" id="" placeholder="Masukkan alasan ..."></textarea>
+                                                                            <small>Bukti Foto Proses Perbaikan</small>
+                                                                        </div>
+
+                                                                        <div class="well well-sm" id="pemberitahuan-admin" style="display: none; background-color: #f5f5f5; padding: 5px; border-radius: 5px">
+                                                                            <label for="">Upload Foto Selesai/label>
+                                                                            <textarea name="keterangan" class="form-control" id="" placeholder="Masukkan alasan ..."></textarea>
+                                                                            <small>Bukti Foto Sebelum Selesai Perbaikann</small>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary font-weight-bold">Simpan Perubahan</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                             {{-- End : Activity for userlevel Petugas --}}
 
                                                         @endif
