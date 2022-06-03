@@ -7,11 +7,8 @@ use App\Models\pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class RiwayatController extends Controller
-{
-    //
-
-
+class RiwayatController extends Controller{
+    
     function index() {
 
         $level = session('level');
@@ -116,10 +113,14 @@ class RiwayatController extends Controller
                             ->where('teknisi_pengaduan.id_pengaduan', $id)
                             ->get();
 
+            // ambil keseluruhan data teknisi : untuk dilakukan pemberangkatan oleh petugas
+            $dt_teknisi_baru = DB::table('teknisi')->where('status_bekerja', "aktif")->get();
+
             // $tb_pengaduan = pengaduan::where('pelanggan_id', $id_pelanggan)->get();
             $data['pengaduan'] = $tb_pengaduan;
             $data['pelanggan'] = $tb_pelanggan;
             $data['teknisi']   = $tb_teknisi;
+            $data['teknisi_baru'] = $dt_teknisi_baru;
 
             return view('pelanggan.riwayat.detail', $data);
 

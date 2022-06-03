@@ -116,6 +116,7 @@ Route::get('send', [PengaduanController::class, 'confirmation']);
 
 
 /** Riwayat Pengaduan */
+
 Route::get('riwayat', [RiwayatController::class, 'index']);
 Route::get('riwayat/detail/{id}', [RiwayatController::class, 'detail']);
 
@@ -136,6 +137,11 @@ Route::get('pengaduanpetugasselesaiperbaikan', [DataPengaduanController::class, 
 
 // Pengubahan status pengaduan : Admin
 Route::post('konfirmasipengaduan/{id_pengaduan}', [DataPengaduanController::class, 'proses_pengubahan_pengaduan']);
+
+// Pengubahan status pengaduan : Petugas
+Route::post('konfirmasi-perbaikkan/{id_pengaduan}', [DataPengaduanController::class, 'proses_pengubahan_pengaduan_petugas']);
+Route::post('dokumentasi-perbaikkan/{id_pengaduan}', [DataPengaduanController::class, 'proses_dokumentasi_pengaduan_petugas']);
+Route::get('konfirmasi-admin/{id_pengaduan}', [DataPengaduanController::class, 'proses_konfirmasi_pengaduan']);
 
 /** Modules :: Data Eksekutor */
 Route::get('teknisi', [EksekutorController::class, 'index']);

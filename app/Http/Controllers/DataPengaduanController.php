@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pelanggan;
 use App\Models\pengaduan;
+use App\Models\TeknisiPengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -122,6 +123,93 @@ class DataPengaduanController extends Controller
 
         // update
         DB::table('pengaduans')->where('id', $id_pengaduan)->update($data);
+
+        return redirect('riwayat/detail/'. $id_pengaduan);
+    }
+    
+    public function proses_pengubahan_pengaduan_petugas(Request $request, $id_pengaduan) {
+
+        $ambilTeknisi = $request->input('teknisi');
+
+        $dt_pengaduan = array(
+
+            'status'        => '3',
+            'laporan_diperbaiki' => date('Y-m-d H:i:s'),
+        );
+
+
+        $dt_teknisi = array();
+        foreach ( $ambilTeknisi AS $id_teknisi ) {
+
+            array_push( $dt_teknisi, array(
+
+                'id_pengaduan'  => $id_pengaduan,
+                'id_teknisi'    => $id_teknisi
+            ) );
+        }
+
+
+        // update
+        DB::table('pengaduans')->where('id', $id_pengaduan)->update($dt_pengaduan);
+
+        // tambah data teknisi
+        TeknisiPengaduan::insert( $dt_teknisi );
+
+        return redirect('riwayat/detail/'. $id_pengaduan);
+    }
+    
+    public function proses_dokumentasi_pengaduan_petugas(Request $request, $id_pengaduan) {
+
+        $foto_sebelum = "";
+        $foto_sesudah = "";
+
+        $request->validate([
+
+            'before-upload'   => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'after-upload'   => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+
+        /** Upload file */
+        $path = "dokumentasi";
+        
+        $file_bef = $request->file('before-upload');
+        $file_af = $request->file('after-upload');
+        
+        $foto_sebelum = "BF"."-".time()."_".$id_pengaduan."_".$file_bef->getClientOriginalName();
+        $file_bef->move($path, $foto_sebelum);
+        
+        $foto_sesudah = "AF"."-".time()."_".$id_pengaduan."_".$file_af->getClientOriginalName();
+        $file_af->move($path, $foto_sesudah);
+
+
+        $dt_pengaduan = array(
+
+            'status'        => '4',
+            'fotosebelum'  => $foto_sebelum,
+            'fotoselesai'  => $foto_sesudah,
+            'laporan_selesai_perbaikan' => date('Y-m-d H:i:s'),
+        );
+
+        // update
+        DB::table('pengaduans')->where('id', $id_pengaduan)->update($dt_pengaduan);
+        return redirect('riwayat/detail/'. $id_pengaduan);
+    }
+
+
+
+
+    public function proses_konfirmasi_pengaduan($id_pengaduan) {
+
+        
+        $dt_pengaduan = array(
+
+            'status'        => '5',
+            'tanggalselesai' => date('Y-m-d H:i:s'),
+        );
+
+        // update
+        DB::table('pengaduans')->where('id', $id_pengaduan)->update($dt_pengaduan);
 
         return redirect('riwayat/detail/'. $id_pengaduan);
     }
