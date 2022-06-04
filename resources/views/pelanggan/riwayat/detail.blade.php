@@ -161,7 +161,7 @@
                                         <small>{{ $pengaduan->fotoaduan }}</small>
 
 
-                                        @if ( $pengaduan->status == "selesai" ) 
+                                        @if ( $pengaduan->status == '5' ) 
                                         <hr>
 
 
@@ -364,7 +364,7 @@
                                                                 <div class="modal-content">
                                                                     
 
-                                                                    <form action="{{ url('konfirmasipengaduan/'. $pengaduan->id) }}" method="POST">
+                                                                    <form action="{{ url('konfirmasi-perbaikkan/'. $pengaduan->id) }}" method="POST">
 
                                                                     @csrf
                                                                     <div class="modal-body">
@@ -375,27 +375,28 @@
                                                                         <h3>Verifikasi Perbaikan</h3>
                                                                         <p> Konfirmasi pengaduan oleh petugas </p>
 
-
-                                                                        <div class="form-group">
-                                                                            <div class="radio-inline">
-                                                                                <label class="radio">
-                                                                                    <input type="radio" name="status_admin" value="1"/>
-                                                                                    <span></span>
-                                                                                    Perbaikan
-                                                                                </label>
-                                                                                <label class="radio">
-                                                                                    <input type="radio" name="status_admin" value="2"/>
-                                                                                    <span></span>
-                                                                                    Selesai Perbaikan
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-
                                                                         
-                                                                        <div class="form-group" id="form-penolakan-admin" style="display: none">
-                                                                            <label for="">Upload Foto Sebelum</label>
-                                                                            <textarea name="keterangan" class="form-control" id="" placeholder="Masukkan alasan ..."></textarea>
-                                                                            <small>Bukti Foto Sebelum Perbaikan</small>
+                                                                        <div>
+                                                                            
+                                                                            <div class="form-group">
+                                                                                <label for="">Pilih Teknisi</label>
+                                                                                <select class="form-control select2" id="kt_select2_3_modal" name="teknisi[]" multiple="multiple">
+                                                                                    <optgroup label="Pilih Teknisi">
+                                                                                        @foreach ( $teknisi_baru AS $index => $isi ) :
+
+                                                                                        @php 
+                                                                                            $terpilih = "";
+                                                                                            if ( $index == 0 ) {
+
+                                                                                                $terpilih = 'selected="selected"';
+                                                                                            }
+                                                                                        @endphp
+                                                                                        <option value="{{ $isi->id_teknisi }}" {{ $terpilih }}>{{ $isi->nama }}</option>
+                                                                                        @endforeach
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                                <small>Pemberangkatan teknisi dapat dipilih lebih dari 1</small>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="form-group" id="form-penolakan-admin" style="display: none">
                                                                             <label for="">Upload Foto Sedang Perbaikan</label>
@@ -440,16 +441,24 @@
                                                 <!--end::Item-->
                                                 
 
-                                                @if ($pengaduan->fotosebelum)
+                                                @if ($pengaduan->laporan_diperbaiki)
 
 
                                                 @php 
 
                                                     $colorSebelum = "warning";
-
-                                                    if ( $pengaduan->fotoselesai ) {
+                                                    if ( $pengaduan->laporan_selesai_perbaikan ) {
 
                                                         $colorSebelum = "success";
+                                                    }
+                                                    
+                                                    
+                                                    $colorSebelumFinal = "warning";
+                                                    $tanggal = "";
+                                                    if ( $pengaduan->status == 5 ) {
+
+                                                        $colorSebelumFinal = "success";
+                                                        $tanggal = date('d M Y H.i A', strtotime( $pengaduan->laporan_selesai_perbaikan ));
                                                     }
 
                                                 @endphp
@@ -470,12 +479,79 @@
                                                     <div class="timeline-desc timeline-desc-light-{{ $colorSebelum }}">
                                                         <span class="font-weight-bolder text-{{ $colorSebelum }}">Pengerjaan Trandis : {{ date('d M Y H.i A'  , strtotime( $pengaduan->laporan_diperbaiki )) }}</span>
                                                         <p class="font-weight-normal text-dark-50 pt-1 pb-2">
-                                                            <label>Dokumentasi Sebelum diperbaiki</label><br>
-                                                            @php 
-                                                                $direktori = 'lampiran_pengerjaan/'. $pengaduan->fotosebelum;
-                                                            @endphp
-                                                            <img src="{{ asset($direktori) }}" alt="Doumentasi" style="width: 200px; height: 120px; object-fit: cover" /><br>
-                                                            <small><b>{{ $pengaduan->fotosebelum }}</b></small>
+                                                            
+                                                            
+
+                                                            @if ( $pengaduan->status == 3 )
+                                                            
+                                                            <label>Tambahkan Dokumentasi Foto</label> <br>
+                                                            <button type="button" data-toggle="modal" data-target="#dokumentasi" class="btn btn-primary btn-sm">+ Dokumentasi</button>
+
+                                                            <!-- Modal-->
+                                                        <div class="modal fade" id="dokumentasi" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                                                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    
+
+                                                                    <form action="{{ url('dokumentasi-perbaikkan/'. $pengaduan->id) }}" method="POST" enctype="multipart/form-data">
+
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <i aria-hidden="true" class="ki ki-close"></i>
+                                                                        </button>
+
+                                                                        <h3>Dokumentasi Perbaikan</h3>
+                                                                        <p>Rincian Lengkap Aktivitas / Kegiatan</p>
+
+
+                                                                        <div class="form-group">
+                                                                            <label for="">Sebelum diperbaiki</label>
+                                                                            <input type="file" name="before-upload" />
+                                                                            <small>Dokumentasi Sebelum Perbaikkan</small>
+                                                                        </div>
+                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="">Setelah diperbaiki</label>
+                                                                            <input type="file" name="after-upload" />
+                                                                            <small>Dokumentasi Setelah Perbaikkan</small>
+                                                                        </div>
+
+                                                                    
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Batal</button>
+                                                                        <button type="submit" class="btn btn-primary font-weight-bold">Simpan Perubahan</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                            @else
+
+                                                            <h5>Dokumentasi Perbaikan Menyeluruh</h5>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    @php 
+                                                                        $direktori_sebelum = 'dokumentasi/'. $pengaduan->fotosebelum;
+                                                                    @endphp
+                                                                    <p>Sebelum Perbaikan</p>
+                                                                    <img src="{{ asset($direktori_sebelum) }}" alt="Doumentasi" style="width: 200px; height: 120px; object-fit: cover" /><br>
+                                                                    <small><b>{{ $pengaduan->fotosebelum }}</b></small>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    @php 
+                                                                        $direktori = 'dokumentasi/'. $pengaduan->fotoselesai;
+                                                                    @endphp
+                                                                    <p>Perbaikkan Selesai</p>
+                                                                    <img src="{{ asset($direktori) }}" alt="Doumentasi" style="width: 200px; height: 120px; object-fit: cover" /><br>
+                                                                    <small><b>{{ $pengaduan->fotoselesai }}</b></small>
+                                                                </div>
+                                                            </div>
+
+                                                            @endif
                                                         </p>
                                                     </div>
                                                     <!--end::Info-->
@@ -486,8 +562,8 @@
                                                 <!--begin::Item-->
                                                 <div class="timeline-item">
                                                     <!--begin::Icon-->
-                                                    <div class="timeline-media bg-light-success">
-                                                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-check.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <div class="timeline-media bg-light-{{ $colorSebelumFinal }}">
+                                                        <span class="svg-icon svg-icon-{{ $colorSebelumFinal }} svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Shield-check.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                                 <rect x="0" y="0" width="24" height="24"/>
                                                                 <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3"/>
@@ -496,34 +572,57 @@
                                                         </svg><!--end::Svg Icon--></span>
                                                     </div>
                                                     <!--end::Icon-->
-                                        
-                                                    <!--begin::Info-->
-                                                    <div class="timeline-desc timeline-desc-light-success">
-                                                        <span class="font-weight-bolder text-success">Pengerjaan Trandis Selesai : {{ date('d M Y H.i A', strtotime( $pengaduan->laporan_selesai_perbaikan )) }}</span>
+                                                    
+
+
+                                                    @if ( session('level') == "admin" )
+                                                    
+
+                                                    @endif
+
+
+                                                    @php
+                                                        
+                                                        $tanggal = "";
+                                                        $tombol = '';
+
+                                                        if ( $pengaduan->status == 4 && session('level') == "admin" ) {
+
+                                                            $tombol = '';
+                                                        } 
+                                                    @endphp
+                                                    <!--begin::Verifikasi Admin-->
+                                                    <div class="timeline-desc timeline-desc-light-{{ $colorSebelumFinal }}">
+                                                        <span class="font-weight-bolder text-{{ $colorSebelumFinal }}">Konfirmasi Pengaduan Selesai : {{ $tanggal }}</span>
                                                         <p class="font-weight-normal text-dark-50 pt-1 pb-2">
-                                                            <label>Setelah Selesai diperbaiki</label><br>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    @php 
-                                                                        $direktori = 'lampiran_pengerjaan/'. $pengaduan->fotoproses;
-                                                                    @endphp
-                                                                    <p>Proses Pengerjaan</p>
-                                                                    <img src="{{ asset($direktori) }}" alt="Doumentasi" style="width: 200px; height: 120px; object-fit: cover" /><br>
-                                                                    <small><b>{{ $pengaduan->fotoproses }}</b></small>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    @php 
-                                                                        $direktori = 'lampiran_pengerjaan/'. $pengaduan->fotoselesai;
-                                                                    @endphp
-                                                                    <p>Perbaikkan Selesai</p>
-                                                                    <img src="{{ asset($direktori) }}" alt="Doumentasi" style="width: 200px; height: 120px; object-fit: cover" /><br>
-                                                                    <small><b>{{ $pengaduan->fotoselesai }}</b></small>
-                                                                </div>
-                                                            </div>
+                                                            <label>Persetujuan Admin</label><br>
+                                                            @if (  $pengaduan->status == 4 && session('level') == "admin" )
+
+                                                                <a href="{{ url('konfirmasi-admin/'. $pengaduan->id) }}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah ingin mengkonfirmasi laporan telah selesai ?')">Konfirmasi Penyelesaian</a>
+                                                                <br>
+                                                                <small>Apabila petugas atau trandis telah menyelesaikan laporan pengaduan, maka admin harus melakukan konfirmasi agar dapat ...</small>
+                                                            @else
+
+
+                                                                @if ( $pengaduan->status == 5 ) 
+
+                                                                    <a class="btn btn-success btn-sm">Pengaduan Selesai</a>
+                                                                    <br>
+                                                                    <small>Pengaduan telah selesai</small>
+                                                                @else
+
+                                                                    <a class="btn btn-warning btn-sm disabled">Konfirmasi Penyelesaian</a>
+                                                                    <br>
+                                                                    <small>Sedang ditinjau oleh Admin</small>
+                                                                @endif
+
+                                                                
+                                                            @endif
                                                             
                                                         </p>
                                                     </div>
                                                     <!--end::Info-->
+                                                    
                                                 </div>
                                                 <!--end::Item-->
                                                 @endif 
@@ -601,8 +700,32 @@
 
                 $('#pemberitahuan-admin').hide().show(500);
                 $('#form-penolakan-admin').hide(500);
+            
             }
-        })
+        }) 
+
+
+
+
+        // inisialisasi select2 didalam modal
+        $('#exampleModalCenter').on('shown.bs.modal', function () {
+            
+            // multi select
+            $('#kt_select2_3_modal').select2({
+                placeholder: "Select a state",
+                width: "100%"
+            });
+
+
+        });
+
+
+
+
+
+
+        // form perbaikkan :: petugas
+
     })
 </script>
 
